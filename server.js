@@ -312,17 +312,6 @@ const handleRequest = async (req, res) => {
     return sendJSON(res, 200, { success: true });
   }
 
-  if (pathname === '/api/document' && req.method === 'POST') {
-    try {
-      const body = await parseJsonBody(req);
-      const doc = getMockDocument(body || {});
-      savedDocuments.push({ ...body, generatedAt: Date.now() });
-      return sendJSON(res, 200, { success: true, document: doc });
-    } catch (error) {
-      return sendJSON(res, 400, { success: false, message: 'Geçersiz JSON verisi.' });
-    }
-  }
-
   if (pathname === '/api/document/save' && req.method === 'POST') {
     try {
       const body = await parseJsonBody(req);
@@ -331,9 +320,20 @@ const handleRequest = async (req, res) => {
         return sendJSON(res, 400, { success: false, message: 'Kaydedilecek bir belge metni gereklidir.' });
       }
       const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
-      const saved = { id, name: type || 'Belge', type: type || 'diger', content: document, generatedAt: Date.now() };
-      savedDocuments.push(saved);
-      return sendJSON(res, 201, { success: true, document: saved });
+      const record = { id, name: type || 'Belge', type: type || 'diger', content: document, generatedAt: Date.now() };
+      savedDocuments.push(record);
+      return sendJSON(res, 201, { success: true, document: record });
+    } catch (error) {
+      return sendJSON(res, 400, { success: false, message: 'Geçersiz JSON verisi.' });
+    }
+  }
+
+  if (pathname === '/api/document' && req.method === 'POST') {
+    try {
+      const body = await parseJsonBody(req);
+      const doc = getMockDocument(body || {});
+      savedDocuments.push({ ...body, generatedAt: Date.now() });
+      return sendJSON(res, 200, { success: true, document: doc });
     } catch (error) {
       return sendJSON(res, 400, { success: false, message: 'Geçersiz JSON verisi.' });
     }

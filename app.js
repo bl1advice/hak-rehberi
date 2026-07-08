@@ -617,29 +617,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (searchInput) {
-    searchInput.addEventListener('input', () => {
-      const q = searchInput.value.trim().toLowerCase();
-      document.querySelectorAll('article').forEach(article => {
-        const text = (article.textContent || '').toLowerCase();
-        article.style.display = text.includes(q) ? '' : 'none';
-      });
+  let activeApplicationFilter = 'all';
+
+  const renderApplicationCards = () => {
+    const query = (searchInput && searchInput.value || '').trim().toLowerCase();
+    document.querySelectorAll('article[data-category]').forEach(article => {
+      const category = article.getAttribute('data-category');
+      const matchesFilter = activeApplicationFilter === 'all' || category === activeApplicationFilter;
+      const matchesQuery = !query || (article.textContent || '').toLowerCase().includes(query);
+      article.style.display = matchesFilter && matchesQuery ? '' : 'none';
     });
+  };
+
+  if (searchInput) {
+    searchInput.addEventListener('input', renderApplicationCards);
   }
 
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       filterButtons.forEach(b => b.classList.remove('bg-primary-container', 'text-white'));
       btn.classList.add('bg-primary-container', 'text-white');
-      const f = btn.getAttribute('data-filter');
-      if (f === 'all') {
-        document.querySelectorAll('article').forEach(a => a.style.display = '');
-        return;
-      }
-      document.querySelectorAll('article').forEach(a => {
-        const title = a.querySelector('h3') ? a.querySelector('h3').textContent.toLowerCase() : '';
-        a.style.display = title.includes(f) ? '' : 'none';
-      });
+      activeApplicationFilter = btn.getAttribute('data-filter');
+      renderApplicationCards();
     });
   });
 
@@ -647,18 +646,57 @@ document.addEventListener('DOMContentLoaded', () => {
   const librarySearch = document.getElementById('librarySearch');
   const libraryList = document.getElementById('libraryList');
   const accordionBtns = document.querySelectorAll('.accordionBtn');
-  const categoryButtons = document.querySelectorAll('[data-category]');
+  const categoryButtons = document.querySelectorAll('aside [data-category]');
+  const libraryCategoryTitle = document.getElementById('libraryCategoryTitle');
+  const libraryCategoryIcon = document.getElementById('libraryCategoryIcon');
 
-  if (librarySearch && libraryList) {
-    librarySearch.addEventListener('input', () => {
-      const q = librarySearch.value.trim().toLowerCase();
-      Array.from(libraryList.querySelectorAll('.accordionBtn')).forEach(btn => {
-        const text = (btn.textContent || '').toLowerCase();
-        const wrapper = btn.closest('div');
-        if (text.includes(q)) wrapper.style.display = '';
-        else wrapper.style.display = 'none';
+  if (libraryList) {
+    const categoryMeta = {
+      kira: { label: 'Kira Hukuku Rehberi', icon: 'home_work' },
+      tuketici: { label: 'Tüketici Hakları Rehberi', icon: 'shopping_bag' },
+      is: { label: 'İş & Çalışan Hakları Rehberi', icon: 'work' },
+      ceza: { label: 'Cezai İşlemler Rehberi', icon: 'balance' }
+    };
+    let activeCategory = 'is';
+
+    const renderLibrary = () => {
+      const query = (librarySearch && librarySearch.value || '').trim().toLowerCase();
+      libraryList.querySelectorAll('.libraryItem').forEach(item => {
+        const matchesCategory = item.getAttribute('data-category') === activeCategory;
+        const matchesQuery = !query || (item.textContent || '').toLowerCase().includes(query);
+        item.classList.toggle('hidden', !(matchesCategory && matchesQuery));
+      });
+    };
+
+    const setActiveCategory = category => {
+      activeCategory = category;
+      const meta = categoryMeta[category];
+      if (meta && libraryCategoryTitle && libraryCategoryIcon) {
+        libraryCategoryTitle.textContent = meta.label;
+        libraryCategoryIcon.textContent = meta.icon;
+      }
+      categoryButtons.forEach(catBtn => {
+        const li = catBtn.closest('li');
+        const isActive = catBtn.getAttribute('data-category') === category;
+        if (li) li.className = isActive ? 'bg-surface-variant border-l-4 border-primary' : '';
+        catBtn.className = isActive
+          ? 'w-full text-left px-5 py-4 flex items-center gap-4 text-primary font-bold'
+          : 'w-full text-left px-6 py-4 flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-highest transition-colors';
+      });
+      renderLibrary();
+    };
+
+    if (librarySearch) {
+      librarySearch.addEventListener('input', renderLibrary);
+    }
+
+    categoryButtons.forEach(catBtn => {
+      catBtn.addEventListener('click', () => {
+        setActiveCategory(catBtn.getAttribute('data-category'));
       });
     });
+
+    renderLibrary();
   }
 
   accordionBtns.forEach(btn => {
@@ -671,111 +709,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (icon) icon.style.transform = hidden ? '' : 'rotate(180deg)';
     });
   });
-
-  categoryButtons.forEach(catBtn => {
-    catBtn.addEventListener('click', () => {
-      const cat = catBtn.getAttribute('data-category');
-      // simple filter: show all (no tag metadata on items), placeholder behavior
-      alert(`Kategori filtreleme: ${cat} (örnek davranış)`);
-    });
-  });
-
-  // Risk Analizi - client-side rule-based risk scoring
-  const riskForm = document.getElementById('riskForm');
-  const riskTopic = document.getElementById('riskTopic');
-  const runRiskBtn = document.getElementById('runRisk');
-  const riskResult = document.getElementById('riskResult');
-  const riskProgress = document.getElementById('riskProgress');
-  const riskDetails = document.getElementById('riskDetails');
-  const riskLevelBadge = document.getElementById('riskLevelBadge');
-  const varSozlesme = document.getElementById('varSozlesme');
-  const gonderildiIhtar = document.getElementById('gonderildiIhtar');
-  const depozitoBank = document.getElementById('depozitoBank');
-
-  if (riskForm && runRiskBtn && riskResult && riskProgress && riskDetails) {
-    const topicLabels = {
-      kira: 'Kira Tahliye Talebi ve Depozito Uyuşmazlığı',
-      isci: 'İşçi Alacakları ve İşe İade',
-      tuketici: 'Tüketici Hakem Heyeti Başvurusu'
-    };
-
-    runRiskBtn.addEventListener('click', () => {
-      const topic = riskTopic ? riskTopic.value : 'kira';
-      const hasContract = !!(varSozlesme && varSozlesme.checked);
-      const hasNoticeSent = !!(gonderildiIhtar && gonderildiIhtar.checked);
-      const depositViaBank = !!(depozitoBank && depozitoBank.checked);
-
-      // Start from a baseline risk score and reduce it as protective factors are confirmed.
-      let score = 85;
-      const missing = [];
-      const strengths = [];
-
-      if (hasContract) {
-        score -= 20;
-        strengths.push('Yazılı kira sözleşmesi mevcut.');
-      } else {
-        missing.push('Yazılı bir kira sözleşmesi bulunmuyor; sözlü anlaşmalar ispat açısından zayıftır.');
-      }
-
-      if (hasNoticeSent) {
-        score -= 15;
-        strengths.push('Ev sahibi tarafından noter ihtarnamesi gönderilmiş.');
-      } else {
-        missing.push('Noterden gönderilmiş bir ihtarname bulunmuyor; süreç henüz resmiyet kazanmamış olabilir.');
-      }
-
-      if (depositViaBank) {
-        score -= 20;
-        strengths.push('Depozito banka açıklamasıyla gönderilmiş, bu güçlü bir delildir.');
-      } else {
-        missing.push('Depozitonun banka açıklamasıyla gönderildiğine dair bir kayıt yok; bu durum ispatı zorlaştırabilir.');
-      }
-
-      score = Math.max(5, Math.min(95, score));
-
-      let levelLabel = 'KRİTİK RİSK SEVİYESİ';
-      let levelClasses = 'bg-error-container/20 text-error border border-error/30 px-3 py-1 rounded font-label-md';
-      let barColor = '#f87171';
-      if (score <= 35) {
-        levelLabel = 'DÜŞÜK RİSK SEVİYESİ';
-        barColor = '#4ade80';
-        levelClasses = 'bg-secondary-container/20 text-secondary border border-secondary/30 px-3 py-1 rounded font-label-md';
-      } else if (score <= 60) {
-        levelLabel = 'ORTA RİSK SEVİYESİ';
-        barColor = '#facc15';
-        levelClasses = 'bg-tertiary-container/20 text-tertiary border border-tertiary/30 px-3 py-1 rounded font-label-md';
-      }
-
-      if (riskLevelBadge) {
-        riskLevelBadge.textContent = levelLabel;
-        riskLevelBadge.className = levelClasses;
-      }
-
-      riskProgress.style.width = `${score}%`;
-      riskProgress.style.backgroundColor = barColor;
-
-      riskResult.innerHTML = `<p class="font-body-md text-body-md text-on-surface">
-        <strong>${topicLabels[topic] || 'Seçili Konu'}</strong> için hesaplanan risk puanı: <strong>${score}/100</strong>.
-      </p>`;
-
-      const detailBlocks = [];
-      if (strengths.length) {
-        detailBlocks.push(
-          `<div class="mb-4"><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Güçlü Yönler</h4><ul class="list-disc list-inside space-y-1 text-on-surface-variant">${strengths
-            .map(s => `<li>${s}</li>`)
-            .join('')}</ul></div>`
-        );
-      }
-      if (missing.length) {
-        detailBlocks.push(
-          `<div><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Eksiklikler ve Öneriler</h4><ul class="list-disc list-inside space-y-1 text-on-surface-variant">${missing
-            .map(m => `<li>${m}</li>`)
-            .join('')}</ul></div>`
-        );
-      }
-      riskDetails.innerHTML = detailBlocks.join('');
-    });
-  }
 
   // Delil Yönetimi (Evidence management) - localStorage based CRUD
   const evidenceTitle = document.getElementById('evidenceTitle');
@@ -947,4 +880,125 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderEvidenceList();
   }
+
+  // Risk Analizi Sihirbazı (risk.html)
+  const riskForm = document.getElementById('riskForm');
+  if (riskForm) {
+    const riskTopic = document.getElementById('riskTopic');
+    const varSozlesme = document.getElementById('varSozlesme');
+    const gonderildiIhtar = document.getElementById('gonderildiIhtar');
+    const depozitoBank = document.getElementById('depozitoBank');
+    const runRisk = document.getElementById('runRisk');
+    const riskResult = document.getElementById('riskResult');
+    const riskProgress = document.getElementById('riskProgress');
+    const riskDetails = document.getElementById('riskDetails');
+    const riskSeverityBadge = document.getElementById('riskSeverityBadge');
+
+    const setSeverity = score => {
+      if (score >= 70) {
+        return { label: 'KRİTİK RİSK SEVİYESİ', barClass: 'bg-error', badgeClass: 'bg-error-container/20 text-error border border-error/30' };
+      }
+      if (score >= 40) {
+        return { label: 'ORTA RİSK SEVİYESİ', barClass: 'bg-tertiary', badgeClass: 'bg-tertiary-container/20 text-tertiary border border-tertiary/30' };
+      }
+      return { label: 'DÜŞÜK RİSK SEVİYESİ', barClass: 'bg-secondary', badgeClass: 'bg-secondary-container/20 text-secondary border border-secondary/30' };
+    };
+
+    const renderKiraAnaliz = () => {
+      let score = 90;
+      const checks = [
+        {
+          checked: varSozlesme.checked,
+          weight: 25,
+          ok: 'Yazılı kira sözleşmeniz var. Bu, haklarınızı ispat etmenizi büyük ölçüde kolaylaştırır.',
+          missing: 'Yazılı kira sözleşmeniz görünmüyor. Sözlü anlaşmalar ispat açısından zayıftır; elinizdeki her türlü yazışma veya dekontu Delil Yönetimi sayfasında saklayın.'
+        },
+        {
+          checked: gonderildiIhtar.checked,
+          weight: 25,
+          ok: 'Ev sahibiniz usulüne uygun noter ihtarnamesi göndermiş. Bu, tahliye sürecinin usul yönünden sağlam olduğunu gösterir.',
+          missing: 'Noter ihtarnamesi gönderilmemiş görünüyor. Usule uygun bildirim yapılmadan başlatılan bir tahliye süreci itiraza açık olabilir.'
+        },
+        {
+          checked: depozitoBank.checked,
+          weight: 20,
+          ok: 'Depozito banka aracılığıyla ve açıklamalı şekilde gönderilmiş. Bu, güçlü bir maddi delildir.',
+          missing: 'Depozitonun banka kaydı bulunmuyor. Elden yapılan ödemelerde geri alım süreci daha zor olabilir; varsa makbuz veya tanık beyanlarını Delil Yönetimi sayfasına ekleyin.'
+        }
+      ];
+      checks.forEach(item => {
+        if (item.checked) score -= item.weight;
+      });
+      score = Math.max(5, Math.min(95, score));
+
+      const severity = setSeverity(score);
+      riskResult.innerHTML = `<strong class="text-on-surface">Kira Tahliye ve Depozito Uyuşmazlığı</strong> için tahmini risk puanınız: <strong>${score}/100</strong>.`;
+      riskProgress.style.width = score + '%';
+      riskProgress.className = 'h-full transition-all duration-700 ease-out ' + severity.barClass;
+      if (riskSeverityBadge) {
+        riskSeverityBadge.textContent = severity.label;
+        riskSeverityBadge.className = 'px-3 py-1 rounded font-label-md ' + severity.badgeClass;
+      }
+      riskDetails.innerHTML = checks
+        .map(item => {
+          const icon = item.checked ? 'check_circle' : 'warning';
+          const color = item.checked ? 'text-secondary' : 'text-error';
+          const text = item.checked ? item.ok : item.missing;
+          return `<div class="flex items-start gap-3 mb-3"><span class="material-symbols-outlined ${color}">${icon}</span><p class="text-on-surface-variant text-body-sm">${text}</p></div>`;
+        })
+        .join('');
+    };
+
+    const renderGenelAnaliz = topicLabel => {
+      const score = 50;
+      const severity = { label: 'GENEL DEĞERLENDİRME', barClass: 'bg-tertiary', badgeClass: 'bg-tertiary-container/20 text-tertiary border border-tertiary/30' };
+      riskResult.innerHTML = `<strong class="text-on-surface">${topicLabel}</strong> için genel bir değerlendirme gösteriliyor.`;
+      riskProgress.style.width = score + '%';
+      riskProgress.className = 'h-full transition-all duration-700 ease-out ' + severity.barClass;
+      if (riskSeverityBadge) {
+        riskSeverityBadge.textContent = severity.label;
+        riskSeverityBadge.className = 'px-3 py-1 rounded font-label-md ' + severity.badgeClass;
+      }
+      riskDetails.innerHTML = `<div class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary">info</span><p class="text-on-surface-variant text-body-sm">Soldaki durum değişkenleri şu anda kira uyuşmazlıkları için hazırlanmıştır. "${topicLabel}" konusunda kişiselleştirilmiş ve daha ayrıntılı bir analiz için <a href="assistant.html" class="text-primary underline">Hak Analiz Motoru</a> sayfasını kullanabilirsiniz.</p></div>`;
+    };
+
+    const runAnalysis = () => {
+      const topic = riskTopic.value;
+      const topicLabel = riskTopic.options[riskTopic.selectedIndex].textContent;
+      if (topic === 'kira') {
+        renderKiraAnaliz();
+      } else {
+        renderGenelAnaliz(topicLabel);
+      }
+    };
+
+    if (runRisk) {
+      runRisk.addEventListener('click', runAnalysis);
+    }
+  }
+
+  // Şifremi Unuttum / KVKK / Kullanım Koşulları / Gizlilik Politikası - basit bilgilendirme
+  const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+  if (forgotPasswordLink) {
+    forgotPasswordLink.addEventListener('click', event => {
+      event.preventDefault();
+      alert('Şifre sıfırlama özelliği bu demo sürümde henüz aktif değil. Test etmek için demo hesabını kullanabilirsiniz:\n\nE-posta: demo@demo.local\nŞifre: demodemo123');
+    });
+  }
+
+  const legalPlaceholderLinks = [
+    { id: 'kvkkLink', title: 'KVKK Aydınlatma Metni', message: 'Bu bir demo/prototip sitesidir. Gerçek bir yayına alma öncesinde buraya güncel ve hukuken geçerli bir KVKK Aydınlatma Metni eklenmelidir.' },
+    { id: 'termsLink', title: 'Kullanım Koşulları', message: 'Bu bir demo/prototip sitesidir. Gerçek bir yayına alma öncesinde buraya güncel ve hukuken geçerli Kullanım Koşulları eklenmelidir.' },
+    { id: 'signupTermsLink', title: 'Kullanım Koşulları', message: 'Bu bir demo/prototip sitesidir. Gerçek bir yayına alma öncesinde buraya güncel ve hukuken geçerli Kullanım Koşulları eklenmelidir.' },
+    { id: 'signupPrivacyLink', title: 'Gizlilik Politikası', message: 'Bu bir demo/prototip sitesidir. Gerçek bir yayına alma öncesinde buraya güncel ve hukuken geçerli bir Gizlilik Politikası eklenmelidir.' }
+  ];
+  legalPlaceholderLinks.forEach(({ id, title, message }) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('click', event => {
+        event.preventDefault();
+        alert(`${title}\n\n${message}`);
+      });
+    }
+  });
 });

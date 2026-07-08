@@ -67,8 +67,8 @@
         </p>
       </div>
       <div class="relative z-10 flex gap-4 text-sm text-outline">
-        <a class="hover:text-primary transition-colors" href="#">KVKK Aydınlatma Metni</a>
-        <a class="hover:text-primary transition-colors" href="#">Kullanım Koşulları</a>
+        <a id="kvkkLink" class="hover:text-primary transition-colors cursor-pointer" href="#">KVKK Aydınlatma Metni</a>
+        <a id="termsLink" class="hover:text-primary transition-colors cursor-pointer" href="#">Kullanım Koşulları</a>
       </div>
       <div class="absolute bottom-0 right-0 w-full h-2/3 opacity-30 translate-x-1/4 translate-y-1/4 pointer-events-none" aria-hidden="true"></div>
     </div>
@@ -93,7 +93,7 @@
           <div class="space-y-2">
             <div class="flex justify-between items-center">
               <label class="block text-sm font-semibold uppercase tracking-[0.2em] text-outline" for="password">Şifre</label>
-              <a class="text-primary text-sm hover:underline decoration-primary/40 underline-offset-4" href="#">Şifremi Unuttum</a>
+              <a id="forgotPasswordLink" class="text-primary text-sm hover:underline decoration-primary/40 underline-offset-4 cursor-pointer" href="#">Şifremi Unuttum</a>
             </div>
             <div class="relative group">
               <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>

@@ -122,67 +122,32 @@
 <body class="bg-background text-on-background font-body-md antialiased min-h-screen flex">
 <!-- SideNavBar -->
 <nav class="h-screen w-72 fixed left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-container z-20">
-<div class="flex flex-col h-full py-6">
-<!-- Brand -->
-<div class="px-6 mb-8 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">videocam</span>
-</div>
-<div>
-<h1 class="text-headline-md font-headline-md font-extrabold text-on-surface leading-none">HAK REHBERİ</h1>
-<p class="text-label-md font-label-md text-on-surface-variant mt-1">Yapay Zekâ Hukuk Asistanı</p>
-</div>
-</div>
-<!-- Nav Links -->
-<div class="flex-1 overflow-y-auto space-y-1 mt-4">
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">grid_view</span>
-<span class="font-body-md">Ana Sayfa</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">explore</span>
-<span class="font-body-md">Hukuki Yol Haritası</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">analytics</span>
-<span class="font-body-md">Hak Analiz Motoru</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">description</span>
-<span class="font-body-md">Akıllı Belge Hazırlama</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">translate</span>
-<span class="font-body-md">Hukuki Dil Çeviricisi</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">folder_open</span>
-<span class="font-body-md">Delil Yönetimi</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">gavel</span>
-<span class="font-body-md">Başvuru Rehberi</span>
-</a>
-<a class="bg-surface-variant text-primary border-l-4 border-primary font-bold px-4 py-3 mx-4 rounded-r-lg flex items-center gap-3 scale-98 transition-all duration-200" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
-<span class="font-body-md">Süre Takibi</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">menu_book</span>
-<span class="font-body-md">Hukuk Kütüphanesi</span>
-</a><a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="#">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">assessment</span>
-<span class="font-body-md">Risk Analizi</span>
-</a>
-<a class="text-on-surface-variant px-4 py-3 mx-4 rounded-lg flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 hover:scale-95 group" href="kutuphane.html">
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">menu_book</span>
-<span class="font-body-md">Hukuk Kütüphanesi</span>
-</a>
-<button class="w-12 h-12 mx-auto bg-error hover:bg-[#be123c] text-white rounded-full flex items-center justify-center transition-colors shadow-lg">
-  <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">warning</span>
-</button>
-</div>
-</div>
+  <div class="px-6 py-6 flex items-center gap-4">
+    <div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center flex-shrink-0">
+      <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+    </div>
+    <div>
+      <h1 class="text-headline-md font-headline-md font-extrabold text-on-surface tracking-tight">HAK REHBERİ</h1>
+      <p class="text-body-sm font-body-sm text-on-surface-variant">Yapay Zekâ Hukuk Asistanı</p>
+    </div>
+  </div>
+  <div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-4">
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="index.html"><span class="material-symbols-outlined text-xl">grid_view</span> Ana Sayfa</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="roadmap.html"><span class="material-symbols-outlined text-xl">explore</span> Hukuki Yol Haritası</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="assistant.html"><span class="material-symbols-outlined text-xl">analytics</span> Hak Analiz Motoru</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="dashboard.html"><span class="material-symbols-outlined text-xl">description</span> Akıllı Belge Hazırlama</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="translate.html"><span class="material-symbols-outlined text-xl">translate</span> Hukuki Dil Çeviricisi</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="delil.html"><span class="material-symbols-outlined text-xl">folder_open</span> Delil Yönetimi</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="basvuru.html"><span class="material-symbols-outlined text-xl">gavel</span> Başvuru Rehberi</a>
+    <a class="bg-surface-variant text-primary border-l-4 border-primary font-bold px-4 py-3 flex items-center gap-3 rounded-r-lg" href="suretakibi.html"><span class="material-symbols-outlined text-xl">calendar_today</span> Süre Takibi</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="kutuphane.html"><span class="material-symbols-outlined text-xl">menu_book</span> Hukuk Kütüphanesi</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="risk.html"><span class="material-symbols-outlined text-xl">assessment</span> Risk Analizi</a>
+  </div>
+  <div class="p-6 flex flex-col gap-1">
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="profile.html"><span class="material-symbols-outlined text-xl">settings</span> Ayarlar</a>
+    <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors" href="kutuphane.html"><span class="material-symbols-outlined text-xl">help</span> Yardım</a>
+    <a href="acil.html" class="w-12 h-12 mx-auto mt-3 bg-error hover:bg-opacity-90 text-white rounded-full flex items-center justify-center transition-all shadow-lg" aria-label="Acil Durum Modu"><span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">warning</span></a>
+  </div>
 </nav>
 <!-- Main Content Area -->
 <main class="ml-72 flex-1 flex flex-col min-h-screen relative">
@@ -331,7 +296,7 @@
 <div class="mt-4">
 <div class="flex items-center justify-between mb-4">
 <h3 class="font-headline-md text-body-lg text-on-surface font-semibold">Seçilen Gün ve Yaklaşan Hukuki Süreler</h3>
-<a class="text-primary hover:text-primary-fixed transition-colors font-label-md text-sm" href="#">Tüm Yaklaşan Süreler</a>
+<a id="viewAllRemindersLink" class="text-primary hover:text-primary-fixed transition-colors font-label-md text-sm cursor-pointer" href="#reminderList">Tüm Yaklaşan Süreler</a>
 </div>
 <div id="reminderList" class="space-y-3 h-48 overflow-y-auto pr-2">
 <!-- Reminders will be rendered here -->
