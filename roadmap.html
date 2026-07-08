@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hak Rehberi - Hukuki Yol Haritası</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet" />
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-secondary-fixed-variant': '#005047',
+              'surface-tint': '#89ceff',
+              'surface-container-highest': '#2d3449',
+              'on-surface': '#dae2fd',
+              'on-tertiary-fixed': '#40000d',
+              primary: '#89ceff',
+              'on-error': '#690005',
+              'outline-variant': '#3e4850',
+              'on-surface-variant': '#bec8d2',
+              'on-tertiary-container': '#6c001d',
+              'on-primary-fixed': '#001e2f',
+              'on-secondary-container': '#004d44',
+              error: '#ffb4ab',
+              'surface-bright': '#31394d',
+              'secondary-fixed-dim': '#3cddc7',
+              'on-secondary': '#003731',
+              'surface-container-high': '#222a3d',
+              'secondary-container': '#03c6b2',
+              background: '#0b1326',
+              'surface-container-lowest': '#060e20',
+              surface: '#0b1326',
+              'inverse-surface': '#dae2fd',
+              'primary-container': '#0ea5e9',
+              'on-secondary-fixed': '#00201c',
+              'surface-container': '#171f33',
+              'on-primary-container': '#003751',
+              'surface-variant': '#2d3449',
+              'on-primary-fixed-variant': '#004c6e',
+              'on-background': '#dae2fd',
+              'inverse-on-surface': '#283044',
+              secondary: '#44e2cd',
+              'on-tertiary': '#67001b',
+              'tertiary-container': '#ff697b',
+              'tertiary-fixed-dim': '#ffb2b7',
+              'primary-fixed': '#c9e6ff',
+              tertiary: '#ffb2b7',
+              'surface-container-low': '#131b2e',
+              'primary-fixed-dim': '#89ceff',
+              outline: '#88929b',
+              'secondary-fixed': '#62fae3',
+              'surface-dim': '#0b1326',
+              'tertiary-fixed': '#ffdadb',
+              'error-container': '#93000a',
+              'inverse-primary': '#006591',
+              'on-tertiary-fixed-variant': '#92002a',
+              'on-error-container': '#ffdad6'
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px'
+            },
+            spacing: {
+              'margin-desktop': '32px',
+              'stack-sm': '8px',
+              'margin-mobile': '16px',
+              'container-max': '1280px',
+              gutter: '24px',
+              'stack-md': '16px',
+              'stack-lg': '32px'
+            },
+            fontFamily: {
+              'label-md': ['JetBrains Mono'],
+              'display-lg': ['Manrope'],
+              'body-md': ['Inter'],
+              'headline-lg': ['Manrope'],
+              'body-sm': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-md': ['Manrope'],
+              'headline-lg-mobile': ['Manrope']
+            },
+            fontSize: {
+              'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+              'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '800' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'headline-lg': ['32px', { lineHeight: '40px', fontWeight: '700' }],
+              'body-sm': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-md': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+              'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '700' }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-gradient-border {
+            position: relative;
+            background: linear-gradient(to right, #0ea5e9, #44e2cd);
+            padding: 1px;
+        }
+        .ai-inner-content {
+            background: #171f33;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-surface-container-low border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary">Hak Rehberi</span>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="hidden md:flex gap-6">
+<a class="text-label-md font-label-md text-primary border-b-2 border-primary py-1" href="roadmap.html">Hukuki Yol Haritası</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors px-2 py-1 rounded" href="index.html">Anasayfa</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-label-md font-label-md text-on-surface">Yapay Zekâ Aktif</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors relative">notifications
+<span class="absolute -top-1 -right-1 bg-error text-[10px] text-on-error w-4 h-4 flex items-center justify-center rounded-full">3</span>
+</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">account_circle</button>
+</div>
+</div>
+</header>
+<nav class="h-screen w-72 fixed left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-container z-20 mt-16">
+<div class="px-6 py-6 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-extrabold text-on-surface tracking-tight">HAK REHBERİ</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Yapay Zekâ Hukuk Asistanı</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-4">
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="index.html">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+Ana Sayfa
+</a>
+<a class="bg-surface-variant text-primary border-l-4 border-primary font-bold px-4 py-3 flex items-center gap-3 rounded-r-lg" href="roadmap.html">
+<span class="material-symbols-outlined text-xl">explore</span>
+Hukuki Yol Haritası
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="assistant.html">
+<span class="material-symbols-outlined text-xl">analytics</span>
+Hak Analiz Motoru
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="dashboard.html">
+<span class="material-symbols-outlined text-xl">description</span>
+Akıllı Belge Hazırlama
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="translate.html">
+<span class="material-symbols-outlined text-xl">translate</span>
+Hukuki Dil Çeviricisi
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="delil.html">
+<span class="material-symbols-outlined text-xl">folder_open</span>
+Delil Yönetimi
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="basvuru.html">
+<span class="material-symbols-outlined text-xl">gavel</span>
+Başvuru Rehberi
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="suretakibi.html">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+Süre Takibi
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="#">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+Hukuk Kütüphanesi
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md" href="risk.html">
+<span class="material-symbols-outlined text-xl">assessment</span>
+        Risk Analizi
+      </a>
+</div>
+<div class="p-6">
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md mb-1" href="profile.html"><span class="material-symbols-outlined text-xl">settings</span>Ayarlar</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md mb-4" href="#"><span class="material-symbols-outlined text-xl">help</span>Yardım</a>
+<a href="acil.html" class="w-12 h-12 mx-auto bg-error hover:bg-opacity-90 text-white rounded-full flex items-center justify-center transition-all shadow-lg" aria-label="Acil Durum Modu">
+  <span class="material-symbols-outlined text-4xl">warning</span>
+</a>
+</div>
+</nav>
+<main class="md:ml-72 pt-24 px-margin-mobile md:px-margin-desktop pb-12 flex-1 min-h-screen">
+<div class="max-w-container-max mx-auto">
+<section class="mb-stack-lg">
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface mb-2">Hukuki Yol Haritası</h1>
+<p class="text-body-md text-on-surface-variant max-w-3xl leading-relaxed">Hukuki sorununuzu detaylandırın. Yapay zekâ, olayın kapsamını belirleyecek, size ek sorular yöneltecek ve detaylı bir yol haritası çıkartacaktır.</p>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<div class="flex flex-col h-[600px] bg-surface-container rounded-xl border border-outline-variant overflow-hidden shadow-lg">
+<div class="p-stack-md border-b border-outline-variant bg-surface-container-high flex justify-between items-center">
+<h2 class="text-headline-md font-headline-md text-on-surface">Adım 1: Durumunuzu Tanımlayın</h2>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-md font-label-md">Aktif</span>
+</div>
+<div class="flex-grow overflow-y-auto p-gutter space-y-6 bg-surface-container-lowest">
+<div class="flex gap-4 max-w-[85%]">
+<div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
+<span class="material-symbols-outlined text-on-primary-container text-xl">smart_toy</span>
+</div>
+<div class="bg-surface-container-high p-4 rounded-2xl rounded-tl-none border border-outline-variant/30">
+<p class="text-body-md text-on-surface">Merhaba! Ben Hak Rehberi Yapay Zekâ Asistanı. Yaşadığınız hukuki olayı anlatabilir misiniz? Durumunuza göre size en uygun adımları ve yol haritasını çıkartacağım.</p>
+</div>
+</div>
+<div class="flex gap-4 opacity-50">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant animate-pulse">chat</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 bg-on-surface-variant rounded-full animate-bounce"></div>
+<div class="w-1.5 h-1.5 bg-on-surface-variant rounded-full animate-bounce delay-100"></div>
+<div class="w-1.5 h-1.5 bg-on-surface-variant rounded-full animate-bounce delay-200"></div>
+</div>
+</div>
+</div>
+<div class="p-stack-md bg-surface-container border-t border-outline-variant">
+<div class="relative group">
+<textarea id="roadmapInput" class="w-full bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-xl p-4 pr-16 text-body-md text-on-surface placeholder:text-on-surface-variant/50 transition-all resize-none h-24" placeholder="Hukuki uyuşmazlığınızı detaylıca yazın..."></textarea>
+<button id="roadmapSend" class="absolute bottom-4 right-4 bg-primary text-on-primary p-3 rounded-xl hover:scale-105 active:scale-95 transition-all shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="flex justify-between items-center mt-3 px-1">
+<span class="text-label-md font-label-md text-on-surface-variant/60">Minimum 20 karakter</span>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" title="Dosya Ekle">attach_file</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" title="Sesli Giriş">mic</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col h-[600px] bg-surface-container rounded-xl border border-outline-variant border-dashed overflow-hidden relative">
+<div class="p-stack-md border-b border-outline-variant bg-surface-container/50 flex justify-between items-center opacity-40">
+<h2 class="text-headline-md font-headline-md text-on-surface">Analiz Sonucu: -- Hukuku</h2>
+<button class="text-label-md font-label-md text-on-surface-variant flex items-center gap-2 cursor-not-allowed"><span class="material-symbols-outlined text-sm">download</span>Raporu Yazdır</button>
+</div>
+<div class="flex-grow p-gutter space-y-8 bg-surface-container-lowest">
+<div id="roadmapResult" class="hidden space-y-4"></div>
+<div class="space-y-4 opacity-20 pointer-events-none grayscale" id="roadmapPlaceholder">
+<div class="grid grid-cols-2 gap-4">
+<div class="h-20 bg-surface-container-high rounded-lg border border-outline-variant"></div>
+<div class="h-20 bg-surface-container-high rounded-lg border border-outline-variant"></div>
+</div>
+<div class="space-y-4">
+<div class="h-4 w-1/3 bg-on-surface-variant rounded"></div>
+<div class="h-32 bg-surface-container-high rounded-lg border border-outline-variant"></div>
+</div>
+<div class="space-y-4">
+<div class="h-4 w-1/4 bg-on-surface-variant rounded"></div>
+<div class="space-y-2"><div class="h-3 w-full bg-on-surface-variant/50 rounded"></div><div class="h-3 w-5/6 bg-on-surface-variant/50 rounded"></div><div class="h-3 w-4/6 bg-on-surface-variant/50 rounded"></div></div>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-gutter text-center bg-background/40 backdrop-blur-[2px]" id="roadmapOverlay">
+<div class="w-20 h-20 bg-surface-container-highest rounded-full flex items-center justify-center mb-6 border border-outline-variant shadow-inner">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">lock</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-3">Yol Haritası Bekleniyor</h3>
+<p class="text-body-md text-on-surface-variant max-w-sm leading-relaxed">Yol haritasını ve kanuni değerlendirmeyi görmek için sol taraftan uyuşmazlığınızı girip ek soruları yanıtlayın.</p>
+</div>
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-gutter">
+<div class="bg-surface-container p-stack-md rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="p-3 bg-secondary/10 rounded-lg"><span class="material-symbols-outlined text-secondary">verified</span></div>
+<div><p class="text-label-md font-label-md text-on-surface-variant">Güven Skoru</p><p id="roadmapTrust" class="text-headline-md font-headline-md text-on-surface">--%</p></div>
+</div>
+<div class="bg-surface-container p-stack-md rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="p-3 bg-primary/10 rounded-lg"><span class="material-symbols-outlined text-primary">timer</span></div>
+<div><p class="text-label-md font-label-md text-on-surface-variant">Tahmini Süreç</p><p id="roadmapDuration" class="text-headline-md font-headline-md text-on-surface">-- Gün</p></div>
+</div>
+<div class="bg-surface-container p-stack-md rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="p-3 bg-tertiary/10 rounded-lg"><span class="material-symbols-outlined text-tertiary">account_balance</span></div>
+<div><p class="text-label-md font-label-md text-on-surface-variant">İlgili Kanun</p><p id="roadmapLaw" class="text-headline-md font-headline-md text-on-surface">Belirlenmedi</p></div>
+</div>
+</div>
+</div>
+</main>
+<script>
+  // Prefill the free-text issue box when arriving via a deep link, e.g. roadmap.html?issue=...
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const issue = params.get('issue');
+    const input = document.getElementById('roadmapInput');
+    if (issue && input) {
+      input.value = issue;
+      input.focus();
+    }
+  });
+</script>
+<script src="nav.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

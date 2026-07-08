@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hak Rehberi | AI Asistan</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#3e4850",
+                    "background": "#0b1326",
+                    "surface-container-lowest": "#060e20",
+                    "surface-container-high": "#222a3d",
+                    "primary": "#89ceff",
+                    "on-secondary-fixed": "#00201c",
+                    "tertiary": "#ffb2b7",
+                    "surface": "#0b1326",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#131b2e",
+                    "secondary-fixed-dim": "#3cddc7",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "primary-fixed-dim": "#89ceff",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#005047",
+                    "surface-tint": "#89ceff",
+                    "primary-container": "#0ea5e9",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#004c6e",
+                    "surface-container": "#171f33",
+                    "surface-container-highest": "#2d3449",
+                    "on-tertiary": "#67001b",
+                    "on-surface-variant": "#bec8d2",
+                    "outline": "#88929b",
+                    "surface-variant": "#2d3449",
+                    "on-secondary": "#003731",
+                    "on-primary-container": "#003751",
+                    "on-secondary-container": "#004d44",
+                    "inverse-primary": "#006591",
+                    "secondary": "#44e2cd",
+                    "on-tertiary-fixed": "#40000d",
+                    "inverse-on-surface": "#283044",
+                    "tertiary-container": "#ff697b",
+                    "on-primary-fixed": "#001e2f",
+                    "secondary-fixed": "#62fae3",
+                    "on-primary": "#00344d",
+                    "on-surface": "#dae2fd",
+                    "on-error": "#690005",
+                    "on-background": "#dae2fd",
+                    "inverse-surface": "#dae2fd",
+                    "secondary-container": "#03c6b2",
+                    "surface-dim": "#0b1326",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-bright": "#31394d",
+                    "primary-fixed": "#c9e6ff",
+                    "on-tertiary-container": "#6c001d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "JetBrains Mono"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Manrope"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .assistant-bg {
+      background: radial-gradient(circle at 0% 0%, rgba(137, 206, 255, 0.15) 0%, transparent 45%),
+                  radial-gradient(circle at 100% 100%, rgba(68, 226, 205, 0.12) 0%, transparent 45%);
+    }
+  </style>
+</head>
+<body class="bg-[#0b1326] text-[#dae2fd] font-body min-h-screen assistant-bg">
+  <nav class="h-screen w-72 fixed left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-container dark:bg-surface-container z-20">
+    <div class="px-6 py-6 flex items-center gap-4">
+      <div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+      </div>
+      <div>
+        <h1 class="text-headline-md font-headline-md font-extrabold text-on-surface tracking-tight">HAK REHBERİ</h1>
+        <p class="text-body-sm font-body-sm text-on-surface-variant">Yapay Zekâ Hukuk Asistanı</p>
+      </div>
+    </div>
+    <div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-4">
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="index.html">
+        <span class="material-symbols-outlined text-xl">grid_view</span>
+        Ana Sayfa
+      </a>
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="signup.html">
+        <span class="material-symbols-outlined text-xl">person_add</span>
+        Kayıt
+      </a>
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="assistant.html">
+        <span class="material-symbols-outlined text-xl">analytics</span>
+        Hak Analiz Motoru
+      </a>
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="dashboard.html">
+        <span class="material-symbols-outlined text-xl">description</span>
+        Akıllı Belge Hazırlama
+      </a>
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="kutuphane.html">
+        <span class="material-symbols-outlined text-xl">menu_book</span>
+        Hukuk Kütüphanesi
+      </a>
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="risk.html">
+        <span class="material-symbols-outlined text-xl">assessment</span>
+        Risk Analizi
+      </a>
+    </div>
+    <div class="p-6">
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md mb-1" href="profile.html"><span class="material-symbols-outlined text-xl">settings</span>Ayarlar</a>
+      <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest transition-colors font-label-md text-label-md mb-4" href="#"><span class="material-symbols-outlined text-xl">help</span>Yardım</a>
+      <a href="acil.html" class="w-12 h-12 mx-auto bg-error hover:bg-opacity-90 text-white rounded-full flex items-center justify-center transition-all shadow-lg" aria-label="Acil Durum Modu"><span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">warning</span></a>
+    </div>
+  </nav>
+
+  <header class="border-b border-[#334155] bg-[#090f1f]/80 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">gavel</span>
+        <div>
+          <p class="text-sm text-on-surface-variant uppercase tracking-[0.25em]">Hak Rehberi</p>
+          <h1 class="text-2xl font-bold text-on-surface">AI Hukuk Asistanı</h1>
+        </div>
+      </div>
+      <a href="index.html" class="inline-flex items-center gap-2 rounded-2xl border border-[#334155] px-4 py-2 text-sm text-on-surface-variant hover:bg-[#1b2438] transition">
+        <span class="material-symbols-outlined">logout</span>
+        Çıkış Yap
+      </a>
+    </div>
+  </header>
+  <main class="ml-72 mx-auto max-w-[1200px] px-6 py-10 grid gap-10 lg:grid-cols-[1.4fr_0.9fr]">
+    <section class="space-y-8">
+      <div class="rounded-[28px] border border-[#334155] bg-[#0f172a]/85 p-8 shadow-[0_24px_80px_-40px_rgba(0,0,0,0.65)]">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.25em] text-primary">Hızlı Destek</p>
+            <h2 class="mt-3 text-3xl font-bold text-on-surface">Sorunuzu AI ile çözün</h2>
+            <p class="mt-3 text-base text-on-surface-variant max-w-2xl">Bir hukuki durumla ilgili net ve anlaşılır cevaplar alın. Sistemdeki bilgiler genel hukuki rehberlik amaçlıdır.</p>
+          </div>
+          <div class="rounded-3xl bg-surface-container-low p-5 text-sm text-on-surface-variant shadow-inner shadow-[#0b1326]">
+            <p class="font-semibold text-on-surface">Önerilen konular</p>
+            <ul class="mt-3 space-y-2">
+              <li>• Kira sözleşmesi hakları</li>
+              <li>• Boşanma ve velayet</li>
+              <li>• Tazminat ve iş hukuku</li>
+              <li>• Miras planlaması</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-[28px] border border-[#334155] bg-[#0f172a]/85 p-6 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.65)]">
+        <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="rounded-[28px] border border-[#334155] bg-[#09101d]/80 p-6">
+            <div class="mb-6 flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary">edit_note</span>
+              <h3 class="font-headline-md text-headline-md">Hukuki Alan ve Parametreler</h3>
+            </div>
+            <form class="space-y-5">
+              <div>
+                <label class="block font-label-md text-label-md text-on-surface-variant mb-2">Uyuşmazlık Alanı Seçin</label>
+                <select id="topicSelect" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface">
+                  <option>Tüketici Hakları</option>
+                  <option>İşçi-İşveren Uyuşmazlığı</option>
+                  <option>Kira Hukuku</option>
+                  <option>Bilişim Hukuku</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-label-md text-label-md text-on-surface-variant mb-2">Fatura veya Alışveriş Belgeniz Var mı?</label>
+                <select id="docStatusSelect" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface">
+                  <option>Evet, mevcut</option>
+                  <option>Hayır, mevcut değil</option>
+                  <option>Sadece dekont var</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-label-md text-label-md text-on-surface-variant mb-2">Satın alma tarihinin üzerinden kaç gün geçti?</label>
+                <div class="relative">
+                  <input id="daysInput" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface" placeholder="Örn: 14" type="number" min="0">
+                  <span class="absolute right-4 top-3 text-on-surface-variant opacity-60">Gün</span>
+                </div>
+              </div>
+              <div>
+                <label class="block font-label-md text-label-md text-on-surface-variant mb-2">Kırık/Ayıplı durumu satıcıya ne zaman bildirdiniz?</label>
+                <select id="notificationSelect" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface">
+                  <option>Henüz bildirmedim</option>
+                  <option>Aynı gün içerisinde</option>
+                  <option>İlk 30 gün içerisinde</option>
+                  <option>6 aydan uzun süre sonra</option>
+                </select>
+              </div>
+              <button id="analysisStartButton" class="w-full bg-primary-container text-on-primary-container font-bold py-4 rounded-xl flex items-center justify-center gap-2 mt-8 hover:brightness-110 active:scale-[0.98] transition-all" type="button">
+                <span class="material-symbols-outlined">bolt</span>
+                Analizi Başlat
+              </button>
+            </form>
+          </div>
+          <div class="rounded-[28px] border border-[#334155] bg-[#09101d]/80 p-6">
+            <h3 class="font-headline-md text-headline-md mb-6">Analiz Raporu &amp; Hak Değerlendirmesi</h3>
+            <div class="flex flex-col gap-6">
+              <div class="grid grid-cols-[auto_1fr] gap-6 items-center">
+                <div class="relative w-36 h-36">
+                  <svg class="w-full h-full rotate-[-90deg]" viewBox="0 0 192 192">
+                    <circle class="text-surface-container-highest" cx="96" cy="96" r="90" fill="transparent" stroke="currentColor" stroke-width="12"></circle>
+                    <circle class="text-secondary" cx="96" cy="96" r="90" fill="transparent" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-dasharray="565.48" stroke-dashoffset="141.37"></circle>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span id="analysisGaugeValue" class="text-display-lg font-extrabold text-secondary">75%</span>
+                    <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Başarı</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-secondary">verified</span>
+                    <h4 id="analysisSummary" class="font-headline-md text-secondary">Çok Güçlü Haklılık Potansiyeli</h4>
+                  </div>
+                  <p id="analysisDetails" class="text-on-surface-variant leading-relaxed">Girdiğiniz parametrelere göre, 6502 sayılı Tüketicinin Korunması Hakkında Kanun kapsamında "Ayıplı Mal" statüsünde değerlendirilme ihtimaliniz oldukça yüksektir. Bildirim süresi içerisinde hareket etmeniz avantaj sağlamaktadır.</p>
+                </div>
+              </div>
+              <div class="rounded-3xl bg-surface-container-low border border-outline-variant p-5">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="material-symbols-outlined text-primary">info</span>
+                  <h5 class="font-bold text-primary">Önemli Uyarı</h5>
+                </div>
+                <p class="text-body-sm text-on-surface-variant leading-relaxed">Bu analiz yapay zeka tarafından verilere dayalı olarak üretilmiştir. Kesin hukuki bağlayıcılığı yoktur; resmi süreç başlatmadan önce bir hukukçuya danışmanız önerilir.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside class="space-y-6">
+      <div id="demoPanel" class="hidden rounded-[28px] border border-[#334155] bg-[#0f172a]/85 p-6">
+        <h3 class="text-xl font-semibold text-on-surface">Demo İçeriği</h3>
+        <div id="demoContent" class="mt-4 text-sm text-on-surface-variant">
+          <p>Demo verileri yükleniyor...</p>
+        </div>
+      </div>
+      <div class="rounded-[28px] border border-[#334155] bg-[#0f172a]/85 p-6">
+        <h3 class="text-xl font-semibold text-on-surface">Hukuki Kategoriler</h3>
+        <div class="mt-5 grid gap-4">
+          <a class="block rounded-3xl border border-[#1f2a48] bg-[#09101d]/80 p-5 hover:border-primary transition" href="#" data-topic="Kira">
+            <p class="font-semibold text-on-surface">Kira Hukuku</p>
+            <p class="mt-2 text-sm text-on-surface-variant">Sözleşme, tahliye ve depozito süreçleri.</p>
+          </a>
+          <a class="block rounded-3xl border border-[#1f2a48] bg-[#09101d]/80 p-5 hover:border-primary transition" href="#" data-topic="Boşanma">
+            <p class="font-semibold text-on-surface">Aile Hukuku</p>
+            <p class="mt-2 text-sm text-on-surface-variant">Boşanma, velayet ve nafaka rehberi.</p>
+          </a>
+          <a class="block rounded-3xl border border-[#1f2a48] bg-[#09101d]/80 p-5 hover:border-primary transition" href="#" data-topic="Tazminat">
+            <p class="font-semibold text-on-surface">İş Hukuku</p>
+            <p class="mt-2 text-sm text-on-surface-variant">Fesih, tazminat ve ücret uyuşmazlıkları.</p>
+          </a>
+          <a class="block rounded-3xl border border-[#1f2a48] bg-[#09101d]/80 p-5 hover:border-primary transition" href="#" data-topic="Miras">
+            <p class="font-semibold text-on-surface">Miras Hukuku</p>
+            <p class="mt-2 text-sm text-on-surface-variant">Miras paylaşımı, vasiyet ve mirasçı hakları.</p>
+          </a>
+        </div>
+      </div>
+      <div class="rounded-[28px] border border-[#334155] bg-[#0f172a]/85 p-6">
+        <h3 class="text-xl font-semibold text-on-surface">Uyarı</h3>
+        <p class="mt-3 text-sm leading-7 text-on-surface-variant">Bu sistem hukuki tavsiye yerine geçmez. Aldığınız yanıtları resmi bir avukata danışarak doğrulamanız önemlidir.</p>
+      </div>
+    </aside>
+  </main>
+  <script src="nav.js"></script>
+  <script src="app.js"></script>
+  <script>
+      async function loadDemoData() {
+        const demo = localStorage.getItem('demoUser');
+        if (!demo) return;
+        try {
+          const res = await fetch('/api/demo/data');
+          const data = await res.json();
+          if (data?.success) {
+            const panel = document.getElementById('demoPanel');
+            const container = document.getElementById('demoContent');
+            panel.classList.remove('hidden');
+            container.innerHTML = '';
+            if (data.profile) {
+              const p = document.createElement('p');
+              p.className = 'font-semibold text-on-surface';
+              p.textContent = data.profile.name + ' (' + data.profile.email + ')';
+              container.appendChild(p);
+            }
+            if (data.reminders && data.reminders.length) {
+              const h = document.createElement('h4'); h.className = 'mt-3 font-medium'; h.textContent = 'Hatırlatmalar'; container.appendChild(h);
+              const ul = document.createElement('ul'); ul.className = 'mt-2 space-y-2';
+              data.reminders.forEach(r => {
+                const li = document.createElement('li');
+                li.textContent = `${r.title} — ${r.date}`;
+                ul.appendChild(li);
+              });
+              container.appendChild(ul);
+            }
+            if (data.documents && data.documents.length) {
+              const h2 = document.createElement('h4'); h2.className = 'mt-3 font-medium'; h2.textContent = 'Belgeler'; container.appendChild(h2);
+              const ul2 = document.createElement('ul'); ul2.className = 'mt-2 space-y-2';
+              data.documents.forEach(d => {
+                const li = document.createElement('li');
+                li.textContent = `${d.name} (${d.type})`;
+                ul2.appendChild(li);
+              });
+              container.appendChild(ul2);
+            }
+          }
+        } catch (e) {
+          console.error('Demo load failed', e);
+        }
+      }
+
+      // Load demo data on page load if demo user present
+      document.addEventListener('DOMContentLoaded', loadDemoData);
+
+        // Category shortcut cards. "Kira" and "Tazminat" map directly onto the
+        // structured analysis form below; "Boşanma" and "Miras" fall outside that
+        // form's scope, so they route to the free-text Yol Haritası tool instead.
+        const structuredTopicMap = {
+          'Kira': 'Kira Hukuku',
+          'Tazminat': 'İşçi-İşveren Uyuşmazlığı'
+        };
+        const roadmapTopicMap = {
+          'Boşanma': 'Boşanma, velayet veya nafaka ile ilgili bir durumum var: ',
+          'Miras': 'Miras paylaşımı veya vasiyetname ile ilgili bir durumum var: '
+        };
+        document.querySelectorAll('[data-topic]').forEach(card => {
+          card.addEventListener('click', event => {
+            event.preventDefault();
+            const topic = card.getAttribute('data-topic');
+            if (structuredTopicMap[topic]) {
+              const select = document.getElementById('topicSelect');
+              if (select) {
+                Array.from(select.options).forEach(opt => {
+                  if (opt.textContent.trim() === structuredTopicMap[topic]) select.value = opt.value;
+                });
+              }
+              const formCard = document.getElementById('daysInput');
+              if (formCard) {
+                formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                formCard.focus();
+              }
+            } else if (roadmapTopicMap[topic]) {
+              window.location.href = 'roadmap.html?issue=' + encodeURIComponent(roadmapTopicMap[topic]);
+            }
+          });
+        });
+
+        const selects = document.querySelectorAll('select');
+        selects.forEach(select => {
+            select.addEventListener('change', () => {
+                select.classList.add('border-primary');
+                setTimeout(() => select.classList.remove('border-primary'), 1000);
+            });
+        });
+
+        const analysisStartButton = document.getElementById('analysisStartButton');
+        const topicSelect = document.getElementById('topicSelect');
+        const docStatusSelect = document.getElementById('docStatusSelect');
+        const daysInput = document.getElementById('daysInput');
+        const notificationSelect = document.getElementById('notificationSelect');
+        const analysisGaugeValue = document.getElementById('analysisGaugeValue');
+        const analysisSummary = document.getElementById('analysisSummary');
+        const analysisDetails = document.getElementById('analysisDetails');
+
+        const buildAnalysisPayload = () => {
+            return `Konu: ${topicSelect.value}. Belge durumu: ${docStatusSelect.value}. Satın alma üzerinden geçen gün sayısı: ${daysInput.value}. Satıcıya bildirim zamanı: ${notificationSelect.value}. Lütfen bu duruma göre hukuki analiz sağlayın.`;
+        };
+
+        const updateAnalysisView = (text) => {
+            if (analysisGaugeValue) analysisGaugeValue.textContent = '75%';
+            if (analysisSummary) analysisSummary.textContent = 'Hak Değerlendirmesi';
+            if (analysisDetails) analysisDetails.textContent = text;
+        };
+
+        if (analysisStartButton) {
+            analysisStartButton.addEventListener('click', async () => {
+                if (!topicSelect.value || !docStatusSelect.value || !daysInput.value || !notificationSelect.value) {
+                    alert('Lütfen tüm alanları doldurun.');
+                    return;
+                }
+
+                analysisStartButton.disabled = true;
+                analysisStartButton.textContent = 'Analiz ediliyor...';
+
+                try {
+                    const response = await fetch('/api/analyze', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ issue: buildAnalysisPayload() })
+                    });
+                    const result = await response.json();
+                    if (response.ok && result.success) {
+                        updateAnalysisView(result.analysis);
+                    } else {
+                        updateAnalysisView(result.message || 'Analiz sırasında bir hata oluştu.');
+                    }
+                } catch (error) {
+                    updateAnalysisView('Sunucuya bağlanılamadı. Lütfen tekrar deneyin.');
+                    console.error('Analyze request failed:', error);
+                } finally {
+                    analysisStartButton.disabled = false;
+                    analysisStartButton.innerHTML = '<span class="material-symbols-outlined">bolt</span> Analizi Başlat';
+                }
+            });
+        }
+  </script>
+</body>
+</html>

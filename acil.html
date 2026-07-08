@@ -1,0 +1,483 @@
+<!DOCTYPE html><html class="dark" lang="tr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Hak Rehberi - Acil Durum Modu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#3e4850",
+                    "background": "#0b1326",
+                    "surface-container-lowest": "#060e20",
+                    "surface-container-high": "#222a3d",
+                    "primary": "#89ceff",
+                    "on-secondary-fixed": "#00201c",
+                    "tertiary": "#ffb2b7",
+                    "surface": "#0b1326",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#131b2e",
+                    "secondary-fixed-dim": "#3cddc7",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "primary-fixed-dim": "#89ceff",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#005047",
+                    "surface-tint": "#89ceff",
+                    "primary-container": "#0ea5e9",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#004c6e",
+                    "surface-container": "#171f33",
+                    "surface-container-highest": "#2d3449",
+                    "on-tertiary": "#67001b",
+                    "on-surface-variant": "#bec8d2",
+                    "outline": "#88929b",
+                    "surface-variant": "#2d3449",
+                    "on-secondary": "#003731",
+                    "on-primary-container": "#003751",
+                    "on-secondary-container": "#004d44",
+                    "inverse-primary": "#006591",
+                    "secondary": "#44e2cd",
+                    "on-tertiary-fixed": "#40000d",
+                    "inverse-on-surface": "#283044",
+                    "tertiary-container": "#ff697b",
+                    "on-primary-fixed": "#001e2f",
+                    "secondary-fixed": "#62fae3",
+                    "on-primary": "#00344d",
+                    "on-surface": "#dae2fd",
+                    "on-error": "#690005",
+                    "on-background": "#dae2fd",
+                    "inverse-surface": "#dae2fd",
+                    "secondary-container": "#03c6b2",
+                    "surface-dim": "#0b1326",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-bright": "#31394d",
+                    "primary-fixed": "#c9e6ff",
+                    "on-tertiary-container": "#6c001d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "JetBrains Mono"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Manrope"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .emergency-glow {
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.2);
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<nav class="h-screen w-72 fixed left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-container dark:bg-surface-container z-20">
+<!-- Brand / Header -->
+<div class="px-6 py-6 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-extrabold text-on-surface tracking-tight">HAK REHBERİ</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Yapay Zekâ Hukuk Asistanı</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-4">
+<!-- Ana Sayfa -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="dashboard.html">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+                Ana Sayfa
+            </a>
+<!-- Hukuki Yol Haritası -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="roadmap.html">
+<span class="material-symbols-outlined text-xl">explore</span>
+                Hukuki Yol Haritası
+            </a>
+<!-- Hak Analiz Motoru -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="assistant.html">
+<span class="material-symbols-outlined text-xl">analytics</span>
+                Hak Analiz Motoru
+            </a>
+<!-- Akıllı Belge Hazırlama -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="dashboard.html">
+<span class="material-symbols-outlined text-xl">description</span>
+                Akıllı Belge Hazırlama
+            </a>
+<!-- Hukuki Dil Çeviricisi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="translate.html">
+<span class="material-symbols-outlined text-xl">translate</span>
+                Hukuki Dil Çeviricisi
+            </a>
+<!-- Delil Yönetimi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="delil.html">
+<span class="material-symbols-outlined text-xl">folder_open</span>
+                Delil Yönetimi
+            </a>
+<!-- Başvuru Rehberi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="basvuru.html">
+<span class="material-symbols-outlined text-xl">gavel</span>
+                Başvuru Rehberi
+            </a>
+<!-- Süre Takibi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="suretakibi.html">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+                Süre Takibi
+            </a>
+<!-- Hukuk Kütüphanesi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="kutuphane.html">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+                Hukuk Kütüphanesi
+            </a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="risk.html">
+<span class="material-symbols-outlined text-xl">assessment</span>
+                Risk Analizi
+            </a>
+</div>
+<!-- Emergency CTA -->
+<div class="p-6"><a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md mb-1" href="profile.html"><span class="material-symbols-outlined text-xl">settings</span>Ayarlar</a><a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md mb-4" href="#"><span class="material-symbols-outlined text-xl">help</span>Yardım</a>
+<a href="acil.html" class="w-12 h-12 mx-auto bg-error hover:bg-opacity-90 text-white rounded-full flex items-center justify-center transition-all shadow-lg" aria-label="Acil Durum Modu"><span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">warning</span></a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="ml-72 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="h-20 flex justify-between items-center px-margin-desktop w-full bg-background sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="text-headline-md font-headline-md font-bold text-on-surface">ACİL DURUM MODU</h2>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of a legal expert in a high-tech minimalist office, soft blue and charcoal lighting, focus on a calm and trustworthy facial expression, high-quality digital photography style with shallow depth of field, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZj2tlRUmCIkYfU4bIn1d6hMWPAZ-TJqPxhVMhc4Jx8nF39UwXsdHH5l-gL4aXh_zgKWoesdBaB_K-GGSk6X1PD900uNW6mLCSgURL2kQrOJtzh2sUEJd4N6DJhlvzSdW4Yy4L1F_xt3QHgeLgwbWFf3zuPDZhbQJz9hZd8cW-rfV9XeMQ0m4bYgQUAG8lV0bFiAjeorpMkCPwnQ2oxYFpkjQbdS0ty8XeuCC5TM2WfKOzGLvuJ33iAyLWWK_mKOb-WTzTQk0ZpuXJ">
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-margin-desktop space-y-gutter flex-1 overflow-y-auto">
+<!-- Warning Banner -->
+<div class="bg-surface-bright border border-error/30 rounded-xl p-6 flex items-start gap-5 relative overflow-hidden">
+<div class="absolute right-0 top-0 opacity-10">
+<span class="material-symbols-outlined text-9xl">shield_with_heart</span>
+</div>
+<div class="bg-error-container/20 p-3 rounded-lg border border-error/50">
+<span class="material-symbols-outlined text-error text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="space-y-1">
+<h3 class="text-headline-md font-bold text-on-surface">ACİL DURUM MODU AKTİF</h3>
+<p class="text-body-md text-on-surface-variant max-w-2xl">
+                        Şu anda yüksek öncelikli yardım modundasınız. Hak Rehberi, en kritik anlarda size rehberlik etmek için yanınızda. Lütfen sakin kalın ve aşağıdaki yönlendirmeleri izleyin. Verileriniz bu modda güvenli bir şekilde yedeklenir.
+                    </p>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Emergency Contacts Section -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">call</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Hızlı Yardım Hatları</h4>
+</div>
+<div class="space-y-4">
+<!-- 112 Card -->
+<div class="group bg-surface-container border border-outline-variant rounded-xl p-6 hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="text-display-lg font-display-lg text-primary block">112</span>
+<p class="font-headline-md text-headline-md text-on-surface">Acil Çağrı Merkezi</p>
+<p class="text-body-sm text-on-surface-variant">Polis, Ambulans, İtfaiye, AFAD</p>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-surface-container-high group-hover:bg-primary-container text-on-surface group-hover:text-on-primary-container font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                                Aramak İçin Tıklayın
+                            </button>
+</div>
+<!-- 183 Card -->
+<div class="group bg-surface-container border border-outline-variant rounded-xl p-6 hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="text-display-lg font-display-lg text-secondary block">183</span>
+<p class="font-headline-md text-headline-md text-on-surface">Sosyal Destek Hattı</p>
+<p class="text-body-sm text-on-surface-variant">Kadın, Çocuk, Engelli Destek</p>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-surface-container-high group-hover:bg-secondary-container text-on-surface group-hover:text-on-secondary-container font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                                Aramak İçin Tıklayın
+                            </button>
+</div>
+<!-- 199 Card -->
+<div class="group bg-surface-container border border-outline-variant rounded-xl p-6 hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="text-display-lg font-display-lg text-on-surface block">199</span>
+<p class="font-headline-md text-headline-md text-on-surface">Nüfus Danışma Hattı</p>
+<p class="text-body-sm text-on-surface-variant">Kimlik Kayıp ve Çalıntı İşlemleri</p>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-surface-container-high group-hover:bg-surface-container-highest text-on-surface font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                                Aramak İçin Tıklayın
+                            </button>
+</div>
+</div>
+</div>
+<!-- Action Plan Section (Bento Style) -->
+<div class="lg:col-span-8 space-y-gutter">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">quick_reference_all</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Kritik Acil Eylem Planı</h4>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Violence / Safety -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-6 relative overflow-hidden col-span-2">
+<div class="flex items-start gap-4">
+<div class="bg-error/10 p-4 rounded-full">
+<span class="material-symbols-outlined text-error text-4xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div class="space-y-3">
+<h5 class="text-headline-md font-bold text-on-surface">Fiziksel Güvenlik ve Şiddet</h5>
+<p class="text-body-md text-on-surface-variant">Anlık bir tehlike altındaysanız veya şiddete maruz kaldıysanız izlemeniz gereken adımlar:</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-3 text-body-sm bg-surface-container-low p-3 rounded-lg border border-outline-variant/30">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                            Güvenli bir alana geçin ve kapıları kilitleyin.
+                                        </li>
+<li class="flex items-center gap-3 text-body-sm bg-surface-container-low p-3 rounded-lg border border-outline-variant/30">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                            KADES uygulamasını kullanarak tek tuşla yardım çağırın.
+                                        </li>
+<li class="flex items-center gap-3 text-body-sm bg-surface-container-low p-3 rounded-lg border border-outline-variant/30">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                            Mümkünse çevrenizdeki güvendiğiniz kişilere konum atın.
+                                        </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ID Theft -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-6 space-y-4">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary">person_search</span>
+</div>
+<h5 class="font-bold text-on-surface">Kimlik Hırsızlığı</h5>
+</div>
+<p class="text-body-sm text-on-surface-variant">
+                                Kimliğiniz çalındıysa vakit kaybetmeden ALO 199 hattını arayın ve e-Devlet üzerinden üzerinize açılan kısıtlamaları kontrol edin.
+                            </p>
+<a class="inline-flex items-center text-primary font-bold gap-1 hover:underline" href="#">
+                                Detaylı Rehberi Gör <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Cyber Fraud -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-6 space-y-4">
+<div class="flex items-center gap-3">
+<div class="bg-secondary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-secondary">lock_reset</span>
+</div>
+<h5 class="font-bold text-on-surface">Siber Dolandırıcılık</h5>
+</div>
+<p class="text-body-sm text-on-surface-variant">
+                                Şüpheli bir işlem fark ettiğinizde bankanızı arayarak tüm kartlarınızı dondurun. Delil olması için mesajları ve dekontları silmeyin.
+                            </p>
+<a class="inline-flex items-center text-secondary font-bold gap-1 hover:underline" href="#">
+                                Süreci Başlat <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Evidence Recording -->
+<div class="bg-surface-container-high border-2 border-primary/20 rounded-xl p-6 col-span-2 flex items-center justify-between">
+<div class="space-y-1">
+<h5 class="font-bold text-on-surface">Hızlı Delil Kaydı</h5>
+<p class="text-body-sm text-on-surface-variant">Bulunduğunuz ortamı kaydedin veya ses kaydı alın. Bu veriler bulutta şifrelenir.</p>
+</div>
+<button class="bg-primary text-on-primary font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-lg hover:shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">mic</span>
+                                Kaydı Başlat
+                            </button>
+</div>
+</div>
+</div>
+<!-- Footer Support Info -->
+<footer class="mt-8 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6 pb-margin-desktop">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined">verified_user</span>
+<p class="text-body-sm">Tüm verileriniz 256-bit uçtan uca şifreleme ile korunmaktadır.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-outline-variant text-on-surface rounded-lg hover:bg-surface-container-high transition-colors">
+                        Avukatıma Haber Ver
+                    </button>
+<button class="px-6 py-2 bg-on-surface text-background font-bold rounded-lg hover:bg-on-surface-variant transition-colors">
+                        Modu Kapat
+                    </button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Floating Panic Button (Optional context based) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-error rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 active:scale-95 transition-all z-30 group overflow-hidden">
+<div class="absolute inset-0 bg-white/20 animate-ping rounded-full"></div>
+<span class="material-symbols-outlined text-3xl relative z-10" style="font-variation-settings: 'FILL' 1;">sos</span>
+</button>
+<script>
+        // Simple Micro-interaction for Emergency Calls
+        document.querySelectorAll('.group.cursor-pointer').forEach(card => {
+            card.addEventListener('click', () => {
+                const numberEl = card.querySelector('.text-display-lg');
+                if (!numberEl) return;
+                const number = numberEl.innerText;
+                if (confirm(`${number} numaralı acil hattı aramak istiyor musunuz?`)) {
+                    window.location.href = `tel:${number}`;
+                }
+            });
+        });
+
+        // Footer actions
+        const notifyLawyerBtn = document.querySelector('footer button:not(.bg-on-surface)');
+        if (notifyLawyerBtn) {
+            notifyLawyerBtn.addEventListener('click', () => {
+                alert('Avukatınıza bilgilendirme talebiniz alındı. En kısa sürede size dönüş yapılacaktır.');
+            });
+        }
+        const closeModeBtn = document.querySelector('footer button.bg-on-surface');
+        if (closeModeBtn) {
+            closeModeBtn.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+        }
+
+        // Floating panic button: quick access to the 112 emergency line
+        const panicBtn = document.querySelector('button.fixed.bottom-8.right-8');
+        if (panicBtn) {
+            panicBtn.addEventListener('click', () => {
+                if (confirm('112 Acil Çağrı Merkezini aramak istiyor musunuz?')) {
+                    window.location.href = 'tel:112';
+                }
+            });
+        }
+
+        // Atmospheric effect: Subtle pulse on the warning banner icon
+        const warningIcon = document.querySelector('.bg-error-container\\/20');
+        if (warningIcon) {
+            setInterval(() => {
+                warningIcon.classList.add('scale-110');
+                setTimeout(() => warningIcon.classList.remove('scale-110'), 200);
+            }, 3000);
+        }
+    </script>
+<script src="nav.js"></script>
+<script src="app.js"></script>
+
+</body></html>

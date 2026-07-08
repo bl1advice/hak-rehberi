@@ -1,0 +1,347 @@
+<!DOCTYPE html><html class="dark" lang="tr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Başvuru Rehberi - Hak Rehberi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#3e4850",
+                    "background": "#0b1326",
+                    "surface-container-lowest": "#060e20",
+                    "surface-container-high": "#222a3d",
+                    "primary": "#89ceff",
+                    "on-secondary-fixed": "#00201c",
+                    "tertiary": "#ffb2b7",
+                    "surface": "#0b1326",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#131b2e",
+                    "secondary-fixed-dim": "#3cddc7",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "primary-fixed-dim": "#89ceff",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#005047",
+                    "surface-tint": "#89ceff",
+                    "primary-container": "#0ea5e9",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#004c6e",
+                    "surface-container": "#171f33",
+                    "surface-container-highest": "#2d3449",
+                    "on-tertiary": "#67001b",
+                    "on-surface-variant": "#bec8d2",
+                    "outline": "#88929b",
+                    "surface-variant": "#2d3449",
+                    "on-secondary": "#003731",
+                    "on-primary-container": "#003751",
+                    "on-secondary-container": "#004d44",
+                    "inverse-primary": "#006591",
+                    "secondary": "#44e2cd",
+                    "on-tertiary-fixed": "#40000d",
+                    "inverse-on-surface": "#283044",
+                    "tertiary-container": "#ff697b",
+                    "on-primary-fixed": "#001e2f",
+                    "secondary-fixed": "#62fae3",
+                    "on-primary": "#00344d",
+                    "on-surface": "#dae2fd",
+                    "on-error": "#690005",
+                    "on-background": "#dae2fd",
+                    "inverse-surface": "#dae2fd",
+                    "secondary-container": "#03c6b2",
+                    "surface-dim": "#0b1326",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-bright": "#31394d",
+                    "primary-fixed": "#c9e6ff",
+                    "on-tertiary-container": "#6c001d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "JetBrains Mono"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Manrope"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container'); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant'); 
+            border-radius: theme('borderRadius.full');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden min-h-screen">
+<!-- Top App Bar (Desktop) -->
+<header class="hidden md:flex justify-between items-center px-margin-desktop w-full h-20 fixed top-0 right-0 left-72 z-10 bg-background/80 backdrop-blur-md border-b border-surface-container">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Başvuru Rehberi</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Yapay Zekâ Aktif</span>
+</div>
+<button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 bg-error text-on-error font-label-md text-[10px] rounded-full flex items-center justify-center leading-none">3</span>
+</button>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-surface-container-highest object-cover" data-alt="A small circular user avatar showing a professional looking person in a dark suit against a neutral background. The lighting is soft and corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzaV4BHf4k4hWMl3Uh0xWZkzJlExrOk5zrW1L70Qd12Va7Mr6wAnrr52uxa7kP4ILzKVDr0dcslzltBRcVN9SFjcmZhpcK9F4KRiXR4tBSt3hoQnU8TnRKb_T9jaLkGspW4HpHtNBVEMD3VvHEwWIlOiucpBNgW1p4n3KB-Bu1Kl2T2_nKzIa0Aw2jeyBcDg08IdPZefBi1YSCrpBG7n16WZcfs_rmdenIBlLIImfUN5NaNT_X4upBhRYbPDiEbq9xFA4ycUHaBFiE">
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col h-screen w-72 fixed left-0 top-0 border-r border-outline-variant bg-surface-container py-6 z-20">
+<!-- Brand -->
+<div class="px-6 mb-8 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined icon-fill text-3xl">gavel</span>
+</div>
+<div>
+<div class="text-headline-md font-headline-md font-extrabold text-on-surface tracking-tight">HAK REHBERİ</div>
+<div class="text-label-md font-label-md text-on-surface-variant mt-1">Yapay Zekâ Hukuk Asistanı</div>
+</div>
+</div>
+<!-- Nav Links -->
+<div class="flex-1 overflow-y-auto px-4 flex flex-col gap-1">
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">grid_view</span>
+<span class="font-label-md text-label-md">Ana Sayfa</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">explore</span>
+<span class="font-label-md text-label-md">Hukuki Yol Haritası</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">analytics</span>
+<span class="font-label-md text-label-md">Hak Analiz Motoru</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">description</span>
+<span class="font-label-md text-label-md">Akıllı Belge Hazırlama</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">translate</span>
+<span class="font-label-md text-label-md">Hukuki Dil Çeviricisi</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">folder_open</span>
+<span class="font-label-md text-label-md">Delil Yönetimi</span>
+</a>
+<!-- Active State -->
+<a class="bg-surface-variant text-primary border-l-4 border-primary font-bold px-4 py-3 flex items-center gap-3 rounded-r-lg scale-98 transition-all duration-200" href="#">
+<span class="material-symbols-outlined icon-fill">gavel</span>
+<span class="font-label-md text-label-md">Başvuru Rehberi</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group mt-1" href="suretakibi.html">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">calendar_today</span>
+<span class="font-label-md text-label-md">Süre Takibi</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">menu_book</span>
+<span class="font-label-md text-label-md">Hukuk Kütüphanesi</span>
+</a><a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">assessment</span>
+<span class="font-label-md text-label-md">Risk Analizi</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="risk.html">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">assessment</span>
+<span class="font-label-md text-label-md">Risk Analizi</span>
+</a>
+        <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="profile.html">
+                <span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+                <span class="font-label-md text-label-md">Ayarlar</span>
+        </a>
+  <a href="#" class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group">
+    <span class="material-symbols-outlined group-hover:text-primary transition-colors">help</span>
+    <span class="font-label-md text-label-md">Yardım</span>
+  </a>
+</div>
+<div class="flex justify-center w-full">
+        <a href="acil.html" class="w-12 h-12 bg-error hover:bg-[#be123c] text-on-error rounded-full flex items-center justify-center transition-colors shadow-[0_0_15px_rgba(225,29,72,0.3)]" aria-label="Acil Durum Modu">
+                <span class="material-symbols-outlined text-2xl">warning</span>
+        </a>
+</div></div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 pt-20 md:pt-28 px-margin-mobile md:px-margin-desktop pb-24 md:pb-12 max-w-container-max mx-auto">
+<!-- Header Text -->
+<div class="mb-stack-lg max-w-3xl">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Hangi durumlarda hangi kuruma, nasıl ve hangi masraflarla başvurmanız gerektiğini detaylı olarak inceleyin. Doğru kuruma başvuru hak kaybını önler.
+            </p>
+</div>
+<!-- Search and Filters Bar -->
+<div class="flex flex-col md:flex-row gap-4 mb-stack-lg items-center">
+<!-- Search -->
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input id="searchInput" class="w-full bg-surface-container-high border border-outline-variant rounded-full py-3 pl-12 pr-4 text-on-surface placeholder:text-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-body-md transition-all" placeholder="Kurum veya uyuşmazlık arayın (Örn: arabul...)" type="text">
+</div>
+<!-- Filters -->
+<div id="filterBar" class="flex flex-wrap gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+<button data-filter="all" class="filterBtn bg-primary-container text-white border border-primary-container px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap">
+                                        Tüm Kurumlar
+                                </button>
+<button data-filter="tuketici" class="filterBtn bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">
+                                        Tüketici
+                                </button>
+<button data-filter="kira" class="filterBtn bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">
+                                        Kira/Gayrimenkul
+                                </button>
+<button data-filter="ceza" class="filterBtn bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">
+                                        Ceza/Şikayet
+                                </button>
+<button data-filter="is" class="filterBtn bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">
+                                        İş Davaları
+                                </button>
+</div>
+</div>
+<!-- Bento Grid / Cards Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Tüketici Hakem Heyeti -->
+<article class="bg-[#1E293B] border border-[#334155] rounded-xl p-6 flex flex-col hover:border-primary/50 transition-colors group">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Tüketici Hakem Heyeti</h3>
+</div>
+<div class="flex-1 space-y-4">
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong class="text-on-surface font-semibold">Ne Zaman Başvurulur:</strong> Değeri 104.000 TL'ye (2024 yılı limiti) kadar olan tüketici uyuşmazlıklarında zo...
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong class="text-on-surface font-semibold">Başvuru Ücreti:</strong> Tamamen ücretsizdir. Kaybedilmesi durumunda karşı tarafa vekalet ücreti ödenmez.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong class="text-on-surface font-semibold">Ortalama Süre:</strong> Ortalama 1.5 - 3 ay (yasal sınır en fazla 6 aydır).
+                    </p>
+</div>
+<button class="detailsBtn mt-6 w-full py-2.5 px-4 border border-[#334155] rounded-lg text-on-surface hover:bg-surface-container-highest font-label-md text-label-md transition-colors">
+                                        Detayları İncele
+                                </button>
+</article>
+
+</main>
+<script src="nav.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

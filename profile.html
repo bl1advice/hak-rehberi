@@ -1,0 +1,531 @@
+<!DOCTYPE html><html class="dark" lang="tr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Profil ve Ayarlar | Legal Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#03c6b2",
+                    "outline-variant": "#3e4850",
+                    "inverse-primary": "#006591",
+                    "on-secondary": "#003731",
+                    "tertiary": "#ffb2b7",
+                    "on-surface": "#dae2fd",
+                    "on-secondary-fixed-variant": "#005047",
+                    "inverse-on-surface": "#283044",
+                    "background": "#0b1326",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-bright": "#31394d",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "on-tertiary-fixed": "#40000d",
+                    "on-primary-fixed": "#001e2f",
+                    "tertiary-container": "#ff697b",
+                    "on-secondary-container": "#004d44",
+                    "on-secondary-fixed": "#00201c",
+                    "primary-container": "#0ea5e9",
+                    "on-background": "#dae2fd",
+                    "on-primary-fixed-variant": "#004c6e",
+                    "surface-variant": "#2d3449",
+                    "surface-container-low": "#131b2e",
+                    "secondary-fixed": "#62fae3",
+                    "on-primary-container": "#003751",
+                    "surface-container": "#171f33",
+                    "primary": "#89ceff",
+                    "on-error-container": "#ffdad6",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#6c001d",
+                    "on-primary": "#00344d",
+                    "surface-dim": "#0b1326",
+                    "surface-container-highest": "#2d3449",
+                    "secondary-fixed-dim": "#3cddc7",
+                    "outline": "#88929b",
+                    "error-container": "#93000a",
+                    "secondary": "#44e2cd",
+                    "surface-tint": "#89ceff",
+                    "surface-container-high": "#222a3d",
+                    "on-tertiary": "#67001b",
+                    "on-surface-variant": "#bec8d2",
+                    "primary-fixed": "#c9e6ff",
+                    "primary-fixed-dim": "#89ceff",
+                    "inverse-surface": "#dae2fd",
+                    "surface": "#0b1326",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "surface-container-lowest": "#060e20"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "container-max": "1280px",
+                    "stack-sm": "8px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Manrope"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131b2e;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3e4850;
+            border-radius: 10px;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #334155;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30 selection:text-primary min-h-screen flex overflow-hidden">
+<!-- SideNavBar Integration -->
+<nav class="h-screen w-72 fixed left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-container dark:bg-surface-container z-20">
+<!-- Brand / Header -->
+<div class="px-6 py-6 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-extrabold text-on-surface tracking-tight">HAK REHBERİ</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Yapay Zekâ Hukuk Asistanı</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-4">
+<!-- Ana Sayfa -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="dashboard.html">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+                Ana Sayfa
+            </a>
+<!-- Hukuki Yol Haritası -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="roadmap.html">
+<span class="material-symbols-outlined text-xl">explore</span>
+                Hukuki Yol Haritası
+            </a>
+<!-- Hak Analiz Motoru -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-xl">analytics</span>
+                Hak Analiz Motoru
+            </a>
+<!-- Akıllı Belge Hazırlama -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-xl">description</span>
+                Akıllı Belge Hazırlama
+            </a>
+<!-- Hukuki Dil Çeviricisi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="translate.html">
+<span class="material-symbols-outlined text-xl">translate</span>
+                Hukuki Dil Çeviricisi
+            </a>
+<!-- Delil Yönetimi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="delil.html">
+<span class="material-symbols-outlined text-xl">folder_open</span>
+                Delil Yönetimi
+            </a>
+<!-- Başvuru Rehberi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="basvuru.html">
+<span class="material-symbols-outlined text-xl">gavel</span>
+                Başvuru Rehberi
+            </a>
+<!-- Süre Takibi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="suretakibi.html">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+                Süre Takibi
+            </a>
+<!-- Hukuk Kütüphanesi -->
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="kutuphane.html">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+                Hukuk Kütüphanesi
+            </a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="risk.html">
+<span class="material-symbols-outlined text-xl">assessment</span>
+                Risk Analizi
+            </a>
+</div>
+<!-- Emergency CTA & Settings (Active) -->
+<div class="p-6">
+<a class="bg-surface-variant text-primary border-l-4 border-primary font-bold px-4 py-3 flex items-center gap-3 rounded-r-lg font-label-md text-label-md scale-[0.98] transition-all duration-200 mb-1" href="profile.html">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">settings</span>
+                Ayarlar
+            </a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors font-label-md text-label-md mb-4" href="#">
+<span class="material-symbols-outlined text-xl">help</span>
+                Yardım
+            </a>
+<a href="acil.html" class="w-12 h-12 mx-auto bg-error hover:bg-opacity-90 text-white rounded-full flex items-center justify-center transition-all shadow-lg" aria-label="Acil Durum Modu">
+    <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-72 flex-1 overflow-y-auto bg-background relative custom-scrollbar min-h-screen">
+<!-- Floating Header (TopAppBar Context) -->
+<header class="sticky top-0 z-30 w-full h-16 bg-background/80 backdrop-blur-md px-margin-desktop flex items-center justify-between border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Profil ve Ayarlar</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="font-body-sm font-semibold text-on-surface">Can Yılmaz</p>
+<p class="font-label-md text-outline">Avukat</p>
+</div>
+<div class="w-10 h-10 rounded-full border border-primary/30 bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a Turkish male lawyer named Can Yılmaz in a dark navy blue suit. The background is a blurred high-end legal office with warm lighting and leather-bound books. The lighting is soft and corporate, matching the deep navy and slate blue tones of the UI for a cohesive and prestigious look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5WqjexFQVaKnciShSlbN4IN1vfxtqDq07HBR6hbtrmje9TtB0pnllE6hRey3_JFxRZx2NSpQaGn14kRwdG4hpC_WkoF4Hv69HRicXg__L-_VRbVVaBDYHFnqL1HP57UWcdR9wFGj1OPO36srok8Yk31_22M_HpQzLXGzzrYu9-XhtEAfejdpUkM2qpgU0QXLA6y3au6FJv110Fap-z4Qm6cC11xDtyjUuGk1Ej3PJI-evHPFMXO83QAXThJiWOdhWXU6uBqvdmkSx">
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="max-w-[1200px] mx-auto p-margin-desktop space-y-10 pb-20">
+<!-- 1. Profile Header Hero -->
+<section class="glass-card p-8 rounded-2xl flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="relative">
+<div class="w-32 h-32 rounded-3xl border-2 border-primary overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A high-quality close-up of a legal identification card or digital profile badge. The focus is on a sleek, modern portrait of a professional lawyer against a dark architectural background. Professional studio lighting highlights the sharp features, conveying authority and trust in a legal AI context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAzR9n6u9SoFZdhjRtRQbXMjXQXpu_ULrJQwtOXTkfI39IncfwfGVHCkNIqT58WGle6AHZdfBpw74kCzZC_AcSBkvtHFWl6oLRccEW_VJ9n2C2Jubv5nbskU859sfZbFMgJvc14-eabJQUvKRjL_fHJlkwsjx-MYPEhBMlz6Lx26ldpVQKvYAEtMSg92PkfZi2Jo2YqdX51ObOQ0ar5HepS7ksipROM3eW1l8o8nqHvoIOEXeIZKitGV203vJL4toJto4s6x9KSzbB">
+</div>
+<button class="absolute bottom-1 right-1 bg-primary text-on-primary w-8 h-8 rounded-lg flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<div class="flex-1 text-center md:text-left">
+<div class="flex flex-col md:flex-row md:items-center gap-3 mb-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Can Yılmaz</h3>
+<span class="inline-flex items-center px-3 py-1 bg-secondary/10 text-secondary border border-secondary/20 rounded-full text-label-md font-bold self-center">
+<span class="material-symbols-outlined text-[14px] mr-1" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+                            Premium Üye
+                        </span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4">can.yilmaz@hakrehberi.com • İstanbul Barosu</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">work</span>
+<span class="font-label-md">124 Tamamlanan Dava</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="font-label-md">8 Aktif Analiz</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid Layout for Settings Groups -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- 2. Kişisel Bilgiler -->
+<section class="bg-surface-container-low p-gutter rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">person</span>
+<h4 class="font-headline-md text-headline-md">Kişisel Bilgiler</h4>
+</div>
+<form class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label-md text-outline">Ad</label>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="Can">
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-outline">Soyad</label>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="Yılmaz">
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-outline">E-posta</label>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="email" value="can.yilmaz@hakrehberi.com">
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-outline">Telefon</label>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="tel" value="+90 532 123 45 67">
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-outline">Adres</label>
+<textarea class="w-full bg-surface-dim border border-outline-variant rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none" rows="3">Maslak, Ahi Evran Cd. No:4, Şişli, İstanbul</textarea>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary font-bold rounded-lg hover:bg-primary/90 transition-colors mt-2" type="submit">Güncelle</button>
+</form>
+</section>
+<!-- 3. Abonelik -->
+<section class="bg-surface-container-low p-gutter rounded-xl border border-outline-variant/30 flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<h4 class="font-headline-md text-headline-md">Abonelik</h4>
+</div>
+<div class="bg-surface-container-highest/30 p-6 rounded-2xl border border-primary/20 mb-6 flex-1">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wider mb-1">Mevcut Plan</p>
+<p class="text-headline-md font-bold text-primary">Profesyonel Paket</p>
+</div>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-md font-bold">YILLIK</span>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex items-center justify-between font-body-sm">
+<span class="text-outline">Sonraki Faturalama</span>
+<span class="text-on-surface font-semibold">12 Kasım 2024</span>
+</div>
+<div class="flex items-center justify-between font-body-sm">
+<span class="text-outline">Tutar</span>
+<span class="text-on-surface font-semibold">₺1.490 / Yıl</span>
+</div>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full mb-2">
+<div class="bg-primary w-3/4 h-full rounded-full"></div>
+</div>
+<p class="font-label-md text-outline text-right">Kullanım: 75/100 Analiz</p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 border border-outline-variant text-on-surface font-bold rounded-lg hover:bg-surface-container-highest transition-colors">Planı Değiştir</button>
+<button class="py-3 border border-outline-variant text-on-surface font-bold rounded-lg hover:bg-surface-container-highest transition-colors">Faturalar</button>
+</div>
+</section>
+<!-- 4. Arayüz ve Bildirim -->
+<section class="bg-surface-container-low p-gutter rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">settings_suggest</span>
+<h4 class="font-headline-md text-headline-md">Arayüz ve Bildirimler</h4>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Dil Seçimi</p>
+<p class="font-label-md text-outline">Uygulama genel dili</p>
+</div>
+<select class="bg-surface-dim border border-outline-variant rounded-lg p-2 text-on-surface focus:border-primary outline-none">
+<option selected="">Türkçe</option>
+<option>English</option>
+<option>Deutsch</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Görünüm</p>
+<p class="font-label-md text-outline">Karanlık veya aydınlık mod</p>
+</div>
+<div class="flex bg-surface-dim p-1 rounded-lg border border-outline-variant">
+<button class="px-3 py-1 text-label-md text-outline hover:text-on-surface">Açık</button>
+<button class="px-3 py-1 text-label-md bg-primary text-on-primary rounded-md font-bold">Koyu</button>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 space-y-4">
+<div class="flex items-center justify-between">
+<p class="font-body-md">E-posta Bildirimleri</p>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<p class="font-body-md">SMS Uyarıları (Acil Durum)</p>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Hesap Güvenliği -->
+<section class="bg-surface-container-low p-gutter rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">security</span>
+<h4 class="font-headline-md text-headline-md">Hesap Güvenliği</h4>
+</div>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-4 bg-surface-dim border border-outline-variant rounded-xl hover:border-primary transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">key</span>
+<div class="text-left">
+<p class="font-body-md font-semibold">Şifre Değiştir</p>
+<p class="font-label-md text-outline">Son güncelleme 3 ay önce</p>
+</div>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<div class="p-4 bg-surface-dim border border-outline-variant rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<div>
+<p class="font-body-md font-semibold">2-Faktörlü Doğrulama</p>
+<p class="font-label-md text-secondary">Aktif</p>
+</div>
+</div>
+<button class="text-primary font-bold font-label-md">Yönet</button>
+</div>
+<div class="pt-4">
+<p class="font-label-md text-outline mb-3 uppercase tracking-widest">Aktif Oturumlar</p>
+<div class="space-y-3">
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">laptop_mac</span>
+<div class="text-left">
+<p class="font-body-sm font-semibold">MacBook Pro - İstanbul, TR</p>
+<p class="font-label-md text-outline">Chrome • Şu an aktif</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">smartphone</span>
+<div class="text-left">
+<p class="font-body-sm font-semibold">iPhone 15 Pro - İstanbul, TR</p>
+<p class="font-label-md text-outline">LexiGuard App • 2 saat önce</p>
+</div>
+</div>
+<button class="text-error font-label-md">Kapat</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- 6. Fatura Geçmişi (Full Width Table) -->
+<section class="bg-surface-container-low rounded-xl border border-outline-variant/30 overflow-hidden">
+<div class="p-gutter border-b border-outline-variant/30 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+<h4 class="font-headline-md text-headline-md">Fatura Geçmişi</h4>
+</div>
+<button class="text-primary font-bold font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Tümünü İndir
+                    </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-dim border-b border-outline-variant/30">
+<tr>
+<th class="px-gutter py-4 font-label-md text-outline">Fatura No</th>
+<th class="px-gutter py-4 font-label-md text-outline">Tarih</th>
+<th class="px-gutter py-4 font-label-md text-outline">Hizmet</th>
+<th class="px-gutter py-4 font-label-md text-outline">Tutar</th>
+<th class="px-gutter py-4 font-label-md text-outline">Durum</th>
+<th class="px-gutter py-4 text-right"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface-container-highest transition-colors">
+<td class="px-gutter py-5 font-label-md">INV-2023-011</td>
+<td class="px-gutter py-5 font-body-sm">12 Kas 2023</td>
+<td class="px-gutter py-5 font-body-sm">Profesyonel Plan (Yıllık)</td>
+<td class="px-gutter py-5 font-body-sm font-semibold text-on-surface">₺1.490,00</td>
+<td class="px-gutter py-5">
+<span class="bg-secondary/10 text-secondary px-2 py-1 rounded text-xs font-bold">ÖDENDİ</span>
+</td>
+<td class="px-gutter py-5 text-right">
+<button class="p-2 hover:bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-outline">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 7. Danger Zone -->
+<section class="border-t border-error/30 pt-10 pb-20">
+<div class="bg-error-container/10 border border-error-container/30 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<h4 class="font-headline-md text-headline-md text-error mb-2">Tehlikeli Bölge</h4>
+<p class="text-on-surface-variant font-body-md">Hesabınızı sildiğinizde tüm dava geçmişiniz, belgeleriniz ve analizleriniz kalıcı olarak silinecektir. Bu işlem geri alınamaz.</p>
+</div>
+<button class="px-8 py-3 bg-error-container text-on-error-container font-bold rounded-xl hover:bg-error-container/80 transition-all whitespace-nowrap">
+                        Hesabı Sil
+                    </button>
+</div>
+</section>
+</div>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 -z-10 pointer-events-none opacity-20">
+</div>
+</main>
+<script>
+        // Micro-interactions and Tab Management
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.innerText.trim() !== 'Settings') {
+                    // Logic for real navigation would go here
+                    // e.preventDefault();
+                }
+            });
+        });
+
+        // Theme Switcher Simulation
+        const themeButtons = document.querySelectorAll('.flex.bg-surface-dim button');
+        themeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                themeButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+                    b.classList.add('text-outline');
+                });
+                btn.classList.remove('text-outline');
+                btn.classList.add('bg-primary', 'text-on-primary', 'font-bold');
+            });
+        });
+
+        // Form Submission Feedback
+        const profileForm = document.querySelector('form');
+        profileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = profileForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "Kaydedildi!";
+            submitBtn.classList.replace('bg-primary', 'bg-secondary');
+            submitBtn.classList.replace('text-on-primary', 'text-on-secondary');
+            
+            setTimeout(() => {
+                submitBtn.innerText = originalText;
+                submitBtn.classList.replace('bg-secondary', 'bg-primary');
+                submitBtn.classList.replace('text-on-secondary', 'text-on-primary');
+            }, 3000);
+        });
+    </script>
+<script src="nav.js"></script>
+<script src="app.js"></script>
+
+</body></html>

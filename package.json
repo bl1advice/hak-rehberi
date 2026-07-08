@@ -1,0 +1,21 @@
+{
+  "name": "hak-rehberi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Yapay zeka destekli hukuk rehberi web sitesi",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "node --test test/server.test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
