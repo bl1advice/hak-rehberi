@@ -323,6 +323,22 @@ const handleRequest = async (req, res) => {
     }
   }
 
+  if (pathname === '/api/document/save' && req.method === 'POST') {
+    try {
+      const body = await parseJsonBody(req);
+      const { type, document } = body || {};
+      if (!document || typeof document !== 'string' || document.trim().length === 0) {
+        return sendJSON(res, 400, { success: false, message: 'Kaydedilecek bir belge metni gereklidir.' });
+      }
+      const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      const saved = { id, name: type || 'Belge', type: type || 'diger', content: document, generatedAt: Date.now() };
+      savedDocuments.push(saved);
+      return sendJSON(res, 201, { success: true, document: saved });
+    } catch (error) {
+      return sendJSON(res, 400, { success: false, message: 'Geçersiz JSON verisi.' });
+    }
+  }
+
   if (pathname === '/api/translate' && req.method === 'POST') {
     try {
       const body = await parseJsonBody(req);

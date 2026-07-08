@@ -163,6 +163,21 @@
         },
       }
     </script>
+<style>
+  .progress-bar-container {
+    width: 100%;
+    height: 10px;
+    border-radius: 9999px;
+    background-color: #2d3449;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 9999px;
+    background-color: #89ceff;
+    transition: width 0.4s ease, background-color 0.4s ease;
+  }
+</style>
 </head>
 <body class="font-body-md text-body-md overflow-hidden bg-background h-screen flex">
 <nav class="h-screen w-72 fixed left-0 top-0 flex flex-col border-r border-outline-variant bg-surface-container dark:bg-surface-container z-20">
@@ -259,7 +274,7 @@
 <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 h-full flex flex-col">
 <div class="flex justify-between items-center mb-8 border-b border-outline-variant/50 pb-4">
 <h3 class="font-headline-md text-headline-md text-on-surface">Risk Raporu ve Eksiklik Analizi</h3>
-<div class="bg-error-container/20 text-error border border-error/30 px-3 py-1 rounded font-label-md">KRİTİK RİSK SEVİYESİ</div>
+<div id="riskLevelBadge" class="bg-error-container/20 text-error border border-error/30 px-3 py-1 rounded font-label-md">Analiz Bekleniyor</div>
 </div>
 <div id="riskResult" class="mb-6">Analiz sonucu burada görünecek.</div>
 <div class="progress-bar-container"><div id="riskProgress" class="progress-bar-fill" style="width:0%"></div></div>

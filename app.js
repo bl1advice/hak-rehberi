@@ -680,6 +680,103 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Risk Analizi - client-side rule-based risk scoring
+  const riskForm = document.getElementById('riskForm');
+  const riskTopic = document.getElementById('riskTopic');
+  const runRiskBtn = document.getElementById('runRisk');
+  const riskResult = document.getElementById('riskResult');
+  const riskProgress = document.getElementById('riskProgress');
+  const riskDetails = document.getElementById('riskDetails');
+  const riskLevelBadge = document.getElementById('riskLevelBadge');
+  const varSozlesme = document.getElementById('varSozlesme');
+  const gonderildiIhtar = document.getElementById('gonderildiIhtar');
+  const depozitoBank = document.getElementById('depozitoBank');
+
+  if (riskForm && runRiskBtn && riskResult && riskProgress && riskDetails) {
+    const topicLabels = {
+      kira: 'Kira Tahliye Talebi ve Depozito Uyuşmazlığı',
+      isci: 'İşçi Alacakları ve İşe İade',
+      tuketici: 'Tüketici Hakem Heyeti Başvurusu'
+    };
+
+    runRiskBtn.addEventListener('click', () => {
+      const topic = riskTopic ? riskTopic.value : 'kira';
+      const hasContract = !!(varSozlesme && varSozlesme.checked);
+      const hasNoticeSent = !!(gonderildiIhtar && gonderildiIhtar.checked);
+      const depositViaBank = !!(depozitoBank && depozitoBank.checked);
+
+      // Start from a baseline risk score and reduce it as protective factors are confirmed.
+      let score = 85;
+      const missing = [];
+      const strengths = [];
+
+      if (hasContract) {
+        score -= 20;
+        strengths.push('Yazılı kira sözleşmesi mevcut.');
+      } else {
+        missing.push('Yazılı bir kira sözleşmesi bulunmuyor; sözlü anlaşmalar ispat açısından zayıftır.');
+      }
+
+      if (hasNoticeSent) {
+        score -= 15;
+        strengths.push('Ev sahibi tarafından noter ihtarnamesi gönderilmiş.');
+      } else {
+        missing.push('Noterden gönderilmiş bir ihtarname bulunmuyor; süreç henüz resmiyet kazanmamış olabilir.');
+      }
+
+      if (depositViaBank) {
+        score -= 20;
+        strengths.push('Depozito banka açıklamasıyla gönderilmiş, bu güçlü bir delildir.');
+      } else {
+        missing.push('Depozitonun banka açıklamasıyla gönderildiğine dair bir kayıt yok; bu durum ispatı zorlaştırabilir.');
+      }
+
+      score = Math.max(5, Math.min(95, score));
+
+      let levelLabel = 'KRİTİK RİSK SEVİYESİ';
+      let levelClasses = 'bg-error-container/20 text-error border border-error/30 px-3 py-1 rounded font-label-md';
+      let barColor = '#f87171';
+      if (score <= 35) {
+        levelLabel = 'DÜŞÜK RİSK SEVİYESİ';
+        barColor = '#4ade80';
+        levelClasses = 'bg-secondary-container/20 text-secondary border border-secondary/30 px-3 py-1 rounded font-label-md';
+      } else if (score <= 60) {
+        levelLabel = 'ORTA RİSK SEVİYESİ';
+        barColor = '#facc15';
+        levelClasses = 'bg-tertiary-container/20 text-tertiary border border-tertiary/30 px-3 py-1 rounded font-label-md';
+      }
+
+      if (riskLevelBadge) {
+        riskLevelBadge.textContent = levelLabel;
+        riskLevelBadge.className = levelClasses;
+      }
+
+      riskProgress.style.width = `${score}%`;
+      riskProgress.style.backgroundColor = barColor;
+
+      riskResult.innerHTML = `<p class="font-body-md text-body-md text-on-surface">
+        <strong>${topicLabels[topic] || 'Seçili Konu'}</strong> için hesaplanan risk puanı: <strong>${score}/100</strong>.
+      </p>`;
+
+      const detailBlocks = [];
+      if (strengths.length) {
+        detailBlocks.push(
+          `<div class="mb-4"><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Güçlü Yönler</h4><ul class="list-disc list-inside space-y-1 text-on-surface-variant">${strengths
+            .map(s => `<li>${s}</li>`)
+            .join('')}</ul></div>`
+        );
+      }
+      if (missing.length) {
+        detailBlocks.push(
+          `<div><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Eksiklikler ve Öneriler</h4><ul class="list-disc list-inside space-y-1 text-on-surface-variant">${missing
+            .map(m => `<li>${m}</li>`)
+            .join('')}</ul></div>`
+        );
+      }
+      riskDetails.innerHTML = detailBlocks.join('');
+    });
+  }
+
   // Delil Yönetimi (Evidence management) - localStorage based CRUD
   const evidenceTitle = document.getElementById('evidenceTitle');
   const evidenceCategory = document.getElementById('evidenceCategory');

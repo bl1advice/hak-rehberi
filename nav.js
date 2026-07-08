@@ -2,6 +2,12 @@ const siteNavigation = () => {
   // If a page already defines its own <nav> (e.g. a dashboard sidebar),
   // avoid injecting a duplicate navigation to prevent layout conflicts.
   if (document.body.querySelector('nav')) return;
+
+  // The login and signup pages use a full-screen, centered split layout with
+  // no header. Injecting the site nav bar here would break that layout, so
+  // skip navigation injection on those pages.
+  const currentPageForAuthCheck = window.location.pathname.split('/').pop() || 'index.html';
+  if (currentPageForAuthCheck === 'index.html' || currentPageForAuthCheck === 'signup.html') return;
   const links = [
     { href: 'index.html', label: 'Giriş' },
     { href: 'signup.html', label: 'Kayıt' },

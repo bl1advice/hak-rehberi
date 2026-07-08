@@ -171,6 +171,13 @@
         .icon-fill {
             font-variation-settings: 'FILL' 1;
         }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
         
         /* Custom scrollbar for webkit */
         ::-webkit-scrollbar {
@@ -254,12 +261,9 @@
 <span class="material-symbols-outlined group-hover:text-primary transition-colors">calendar_today</span>
 <span class="font-label-md text-label-md">Süre Takibi</span>
 </a>
-<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="kutuphane.html">
 <span class="material-symbols-outlined group-hover:text-primary transition-colors">menu_book</span>
 <span class="font-label-md text-label-md">Hukuk Kütüphanesi</span>
-</a><a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="#">
-<span class="material-symbols-outlined group-hover:text-primary transition-colors">assessment</span>
-<span class="font-label-md text-label-md">Risk Analizi</span>
 </a>
 <a class="text-on-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-colors rounded-lg group" href="risk.html">
 <span class="material-symbols-outlined group-hover:text-primary transition-colors">assessment</span>
@@ -278,7 +282,7 @@
         <a href="acil.html" class="w-12 h-12 bg-error hover:bg-[#be123c] text-on-error rounded-full flex items-center justify-center transition-colors shadow-[0_0_15px_rgba(225,29,72,0.3)]" aria-label="Acil Durum Modu">
                 <span class="material-symbols-outlined text-2xl">warning</span>
         </a>
-</div></div>
+</div>
 </nav>
 <!-- Main Content Canvas -->
 <main class="md:ml-72 pt-20 md:pt-28 px-margin-mobile md:px-margin-desktop pb-24 md:pb-12 max-w-container-max mx-auto">
@@ -339,7 +343,7 @@
                                         Detayları İncele
                                 </button>
 </article>
-
+</div>
 </main>
 <script src="nav.js"></script>
   <script src="app.js"></script>
